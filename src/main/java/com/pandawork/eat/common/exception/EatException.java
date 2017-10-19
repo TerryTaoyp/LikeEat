@@ -7,6 +7,7 @@ import com.pandawork.core.common.exception.IBizExceptionMes;
  */
 public enum EatException implements IBizExceptionMes{
 
+
     ;
     private String mes;
     private int code;

@@ -12,9 +12,6 @@ public final class WebConstants {
     //第一平台
 
     public static Map<String, Integer> modelTypeMap = new HashMap<>();
-    //本地开发配置
-//    public final static String website = "http://http://localhost:8080/";    //网站地址
-//    public static String staticWebsite = "http://localhost:8080/resources/js/";    //静态资源站点
     // 网站标题
     public static String webTitle;
 
