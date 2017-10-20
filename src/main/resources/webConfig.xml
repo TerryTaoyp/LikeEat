@@ -69,18 +69,18 @@
     </bean> -->
 	<!-- pring mvc 上传文件处理配置 end -->
 	<!-- 拦截器配置部分 -->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <bean id="loginStuCheckIntercepter" class="com.pandawork.eat.web.intercepter.LoginStuCheckIntercepter">
-                <property name="allowUrls">
-                    <list>
-                        <value>/login</value>
-                        <value>/logout</value>
-                    </list>
-                </property>
-            </bean>
-        </mvc:interceptor>
-    </mvc:interceptors>
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<bean id="loginStuCheckIntercepter" class="com.pandawork.eat.web.intercepter.LoginStuCheckIntercepter">-->
+                <!--<property name="allowUrls">-->
+                    <!--<list>-->
+                        <!--<value>/login</value>-->
+                        <!--<value>/logout</value>-->
+                    <!--</list>-->
+                <!--</property>-->
+            <!--</bean>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
 </beans>

@@ -1,4 +1,4 @@
-package com.pandawork.home;
+package com.pandawork.eat;
 
 import junit.framework.TestCase;
 import org.junit.runner.RunWith;

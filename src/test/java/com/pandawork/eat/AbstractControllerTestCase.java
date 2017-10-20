@@ -1,4 +1,4 @@
-package com.pandawork.home;
+package com.pandawork.eat;
 
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;

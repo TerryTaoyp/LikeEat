@@ -34,6 +34,10 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
+    //角色ID
+    @Column(name = "role_id")
+    private Integer roleId;
+
     public Integer getId() {
         return id;
     }
@@ -80,6 +84,14 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     @Override
