@@ -53,4 +53,8 @@
         SELECT * FROM t_user WHERE id = #{id}
     </select>
 
+    <select id="listAll" resultMap="pw.User">
+        SELECT * FROM t_user
+    </select>
+
 </mapper>

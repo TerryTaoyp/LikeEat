@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.eat.mapper.system.RoleMapper">
+
+    <insert id="addRole">
+        INSERT INTO t_role(
+        role,
+        power_id
+        )VALUES (
+        #{role.role},
+        #{role.powerId}
+        )
+    </insert>
+
+    <update id="updateRole">
+        UPDATE t_role SET role = #{role.role},
+        power_id = #{role.powerId}
+        WHERE id = #{role.id}
+    </update>
+
+    <delete id="delRole">
+        DELETE FROM t_role WHERE id = #{id}
+    </delete>
+
+    <select id="listAll" resultMap="pw.Role">
+        SELECT * FROM t_role
+    </select>
+</mapper>

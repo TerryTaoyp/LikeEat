@@ -3,6 +3,8 @@ package com.pandawork.eat.service.system;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.eat.common.entity.system.User;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/10/20.
  */
@@ -45,7 +47,7 @@ public interface UserService {
      * @return
      * @throws SSException
      */
-    public User queryByRoleId(int roleId)throws SSException;
+    public List<User> queryByRoleId(int roleId)throws SSException;
 
     /**
      * 根据ID查询
@@ -53,4 +55,11 @@ public interface UserService {
      * @throws SSException
      */
     public User queryById(int id)throws SSException;
+
+    /**
+     * 列出所有的用户
+     * @return
+     * @throws SSException
+     */
+    public List<User> listAll()throws SSException;
 }

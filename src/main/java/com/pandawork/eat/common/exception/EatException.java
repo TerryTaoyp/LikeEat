@@ -13,7 +13,13 @@ public enum EatException implements IBizExceptionMes{
     DelUserFailed("删除用户失败",1004),
     QueryUserByUsernameFailed("根据用户名查找失败",1005),
     QueryUserByRoleIdFailed("根据角色ID查找用户失败",1006),
-    QueryUserByIdFailed("根据用户ID查找失败",1007)
+    QueryUserByIdFailed("根据用户ID查找失败",1007),
+
+
+    AddRoleFailed("添加角色失败",1008),
+    UpdateRoleFailed("更新角色信息失败",1009),
+    DelRoleFailed("删除角色信息失败",1010),
+    ListAllRoleFailed("列出所有的角色",1011)
 
     ;
     private String mes;

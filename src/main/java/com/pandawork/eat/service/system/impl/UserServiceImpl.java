@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/10/20.
  */
@@ -89,7 +91,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User queryByRoleId(int roleId) throws SSException {
+    public List<User> queryByRoleId(int roleId) throws SSException {
         try {
             if (Assert.isNull(roleId)){
                 return null;
@@ -112,5 +114,10 @@ public class UserServiceImpl implements UserService {
             LogClerk.errLog.error(e);
             throw SSException.get(EatException.QueryUserByIdFailed);
         }
+    }
+
+    @Override
+    public List<User> listAll() throws SSException {
+        return userMapper.listAll();
     }
 }
