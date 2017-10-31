@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pandawork.eat.mapper.goods.PriceParaMapper">
+    <insert id="addPricePara">
+        INSERT INTO t_price_parameter (
+        customer_type_id,
+        price_parameter
+        )VALUES (
+        #{pricePara.customerTypeId},
+        #{pricePara.pricePara}
+        )
+    </insert>
+
+    <update id="editPricePara">
+        UPDATE t_price_parameter SET
+        customer_type_id = #{pricePara.customerTypeId},
+        price_parameter = #{pricePara.pricePara}
+        WHERE id = #{pricePara.id}
+    </update>
+
+    <delete id="delPricePara">
+        DELETE FROM t_price_parameter WHERE id =#{id}
+    </delete>
+
+    <select id="listAll" resultMap="pw.PricePara">
+        SELECT * FROM t_price_parameter
+    </select>
+
+</mapper>

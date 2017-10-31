@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.eat.mapper.goods.GoodsPriceMapper">
+    <insert id="addGoodsPrice">
+        INSERT INTO t_goods_price(
+        goods_id,
+        price_cost,
+        market_price,
+        remark
+        )VALUES (
+        #{goodsPrice.goodsId},
+        #{goodsPrice.priceCost},
+        #{goodsPrice.marketPrice},
+        #{goodsPrice.remark}
+        )
+    </insert>
+
+
+    <update id="updateGoodsPrice">
+        UPDATE t_goods_price SET
+        goods_id = #{goodsPrice.goodsId},
+        price_cost = #{goodsPrice.priceCost},
+        market_price = #{goodsPrice.marketPrice},
+        remark = #{goodsPrice.remark}
+        WHERE id = #{goodsPrice.id}
+    </update>
+
+    <delete id="delGoodsPrice">
+        DELETE FROM t_goods_price WHERE id = #{id}
+    </delete>
+</mapper>

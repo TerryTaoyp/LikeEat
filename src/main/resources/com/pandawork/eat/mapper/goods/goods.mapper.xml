@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.eat.mapper.goods.GoodsMapper">
+    <insert id="addGoods">
+        INSERT INTO t_goods(
+        goods_name,
+        goods_type,
+        goods_address,
+        specification
+        )VALUES (
+        #{goods.goodsName},
+        #{goods.goodsType},
+        #{goods.goodsAddress},
+        #{goods.specification}
+        )
+    </insert>
+
+    <update id="updateGoods">
+        UPDATE t_goods SET
+        goods_name = #{goods.goodsName},
+        goods_type = #{goods.goodsType},
+        goods_address = #{goods.goodsAddress},
+        specification = #{goods.specification}
+        WHERE id = #{goods.specification}
+    </update>
+
+    <delete id="delGoods">
+        DELETE FROM t_goods WHERE id = #{id}
+    </delete>
+
+    <select id="queryGoodsById" resultMap="pw.Goods">
+        SELECT * FROM t_goods WHERE id = #{id}
+    </select>
+
+    <select id="listAll" resultMap="pw.Goods">
+        SELECT * FROM t_goods
+    </select>
+
+    <select id="queryGoodsByType" resultMap="pw.Goods">
+        SELECT * FROM t_goods WHERE goods_type = #{goodsType}
+    </select>
+
+    <select id="queryGoodsByName" resultMap="pw.Goods">
+        SELECT * FROM t_goods WHERE goods_name = #{goodsName}
+    </select>
+</mapper>

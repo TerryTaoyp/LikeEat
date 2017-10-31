@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.eat.mapper.goods.GoodsTypeMapper">
+    <insert id="addGoodsType">
+        INSERT INTO t_goods_type(
+        name,remark
+        )VALUES (
+        #{goodsType.name},
+        #{goodsType.remark}
+        )
+    </insert>
+
+    <update id="editGoodsType">
+        UPDATE t_goods_type SET
+        name = #{goodsType.name},
+        remark = #{goodsType.remark}
+        WHERE id = #{goodsType.id}
+    </update>
+
+    <delete id="delGoodsType">
+        DELETE FROM t_goods_type WHERE id = #{id}
+    </delete>
+
+    <select id="listAll" resultMap="pw.GoodsType">
+        SELECT * FROM t_goods_type
+    </select>
+</mapper>

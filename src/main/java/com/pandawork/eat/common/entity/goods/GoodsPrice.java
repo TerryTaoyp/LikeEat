@@ -21,7 +21,7 @@ public class GoodsPrice {
 
     //进货价格
     @Column(name = "price_cost")
-    private Double primeCost;
+    private Double priceCost;
 
     //市场价格
     @Column(name = "market_price")
@@ -48,11 +48,11 @@ public class GoodsPrice {
     }
 
     public Double getPrimeCost() {
-        return primeCost;
+        return priceCost;
     }
 
     public void setPrimeCost(Double primeCost) {
-        this.primeCost = primeCost;
+        this.priceCost = primeCost;
     }
 
     public Double getMarketPrice() {
@@ -76,7 +76,7 @@ public class GoodsPrice {
         return "GoodsPrice{" +
                 "id=" + id +
                 ", goodsId=" + goodsId +
-                ", primeCost=" + primeCost +
+                ", primeCost=" + priceCost +
                 ", marketPrice=" + marketPrice +
                 ", remark='" + remark + '\'' +
                 '}';
