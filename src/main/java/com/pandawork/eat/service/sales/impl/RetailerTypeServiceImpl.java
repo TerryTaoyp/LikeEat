@@ -1,8 +1,6 @@
 package com.pandawork.eat.service.sales.impl;
 
-import com.pandawork.eat.mapper.sales.RetailerTypeMapper;
 import com.pandawork.eat.service.sales.RetailerTypeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +8,6 @@ import org.springframework.stereotype.Service;
  */
 @Service(value = "retailerTypeService")
 public class RetailerTypeServiceImpl implements RetailerTypeService {
-    @Autowired
-    RetailerTypeMapper retailerTypeMapper;
+//    @Autowired
+//    RetailerTypeMapper retailerTypeMapper;
 }

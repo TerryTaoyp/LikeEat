@@ -3,4 +3,34 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pandawork.eat.mapper.purchase.PurchaseOrderMapper">
+    <insert id="addPurchaseOrder">
+        INSERT INTO t_purchase_order(
+        card_number,
+        supplier_id ,
+        sales_amount,
+        express_fee
+        )VALUES (
+         #{purchaseOrder.cardNumber},
+         #{purchaseOrder.supplierId},
+         #{purchaseOrder.salesAmount},
+         #{purchaseOrder.expressFee}
+        )
+    </insert>
+
+    <update id="updatePurchaseOrder">
+        UPDATE t_purchase_order SET
+        card_number = #{purchaseOrder.cardNumber},
+        supplier_id = #{purchaseOrder.supplierId},
+        sales_amount = #{purchaseOrder.salesAmount},
+        express_fee = #{purchaseOrder.expressFee}
+        WHERE id = #{purchaseOrder.id}
+    </update>
+
+    <delete id="delPurchaseOrder">
+        DELETE FROM t_purchase_order WHERE id  = #{id}
+    </delete>
+
+    <select id="listAll" resultMap="pw.PurchaseOrder">
+        SELECT * FROM t_purchase_order
+    </select>
 </mapper>

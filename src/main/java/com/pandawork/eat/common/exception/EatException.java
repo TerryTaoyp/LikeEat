@@ -37,10 +37,22 @@ public enum EatException implements IBizExceptionMes{
     AddPriceParaFailed("新增价格参数失败",1115),
     EditPriceParaFailed("编辑价格参数失败",1116),
     DelPriceParaFailed("删除价格参数失败",1117),
-    ListAllPriceParaFailed("列出所有的价格参数失败",1118)
+    ListAllPriceParaFailed("列出所有的价格参数失败",1118),
 
 
     //供货商管理
+    AddSupplierFailed("新增供货商信息失败",1201),
+    EditSupplierFailed("编辑供货商信息失败",1202),
+    DelSupplierFailed("删除供货商信息失败",1203),
+    ListSupplierFailed("列出所有供货商失败",1204),
+    AddSupplierTypeFailed("新增供货商类别失败",1205),
+    EditSupplierTypeFailed("编辑供货商类别信息失败",1206),
+    DelSupplierTypeFailed("删除供货商类别失败",1207),
+    ListAllSupplierTypeFailed("列出所有的供货商类别失败",1208),
+    AddPurchaseOrderFailed("新增采购订单失败",1209),
+    EditPurchaseOrderFailed("编辑采购订单信息失败",1210),
+    DelPurchaseOrderFailed("删除采购订单失败",1211),
+    ListAllPurchaseOrderFailed("列出所有的采购订单失败",1212)
     //销售管理
     //查询管理
 

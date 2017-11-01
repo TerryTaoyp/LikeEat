@@ -15,11 +15,9 @@ public class Supplier {
 
     @Id
     private Integer id;
-
     //供货商名字
     @Column(name = "supplier_name")
     private String supplierName;
-
     //供货商类别
     @Column(name = "supplier_type")
     private Integer supplierTypeId;

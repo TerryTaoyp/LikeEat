@@ -3,5 +3,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pandawork.eat.mapper.purchase.SupplierTypeMapper">
+    <insert id="addSupplierType">
+        INSERT INTO t_supplier_type(
+        name,remark
+        )VALUES (
+        #{supplierType.name},
+        #{supplierType.remark}
+        )
+    </insert>
 
+    <update id="editSupplierType">
+        UPDATE t_supplier_type SET
+        name = #{supplierType.name},
+        remark = #{supplierType.remark}
+        WHERE id = #{supplierType.id}
+    </update>
+
+    <delete id="delSupplierType">
+        DELETE FROM t_supplier_type WHERE id = #{id}
+    </delete>
+
+    <select id="listAll" resultMap="pw.SupplierType">
+        SELECT * FROM t_supplier_type
+    </select>
 </mapper>

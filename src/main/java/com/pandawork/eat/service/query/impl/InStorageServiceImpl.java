@@ -1,8 +1,6 @@
 package com.pandawork.eat.service.query.impl;
 
-import com.pandawork.eat.mapper.query.InStorageMapper;
 import com.pandawork.eat.service.query.InStorageService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +8,6 @@ import org.springframework.stereotype.Service;
  */
 @Service(value = "inStorageService")
 public class InStorageServiceImpl implements InStorageService {
-    @Autowired
-    InStorageMapper inStorageMapper;
+//    @Autowired
+//    InStorageMapper inStorageMapper;
 }

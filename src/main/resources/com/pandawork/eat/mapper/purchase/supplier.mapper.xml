@@ -4,4 +4,37 @@
 
 <mapper namespace="com.pandawork.eat.mapper.purchase.SupplierMapper">
 
+    <insert id="addSupplier">
+        INSERT INTO t_supplier(
+        supplier_name,
+        supplier_type,
+        supplier_address,
+        telephone,
+        remark
+        )VALUES (
+        #{supplier.supplierName},
+        #{supplier.supplierTypeId},
+        #{supplier.supplierAddress},
+        #{supplier.telephone},
+        #{supplier.remark}
+        )
+    </insert>
+
+    <update id="editSupplier">
+        UPDATE t_supplier SET
+        supplier_name = #{supplier.supplierName},
+        supplier_type = #{supplier.supplierTypeId},
+        supplier_address = #{supplier.supplierAddress},
+        telephone = #{supplier.telephone},
+        remark = #{supplier.remark}
+        WHERE id = #{supplier.id}
+    </update>
+
+    <delete id="delSupplier">
+        DELETE FROM t_supplier WHERE id = #{id}
+    </delete>
+
+    <select id="listAll" resultMap="pw.Supplier">
+        SELECT * FROM t_supplier
+    </select>
 </mapper>

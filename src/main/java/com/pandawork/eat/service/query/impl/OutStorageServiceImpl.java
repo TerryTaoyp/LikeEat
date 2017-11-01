@@ -1,8 +1,6 @@
 package com.pandawork.eat.service.query.impl;
 
-import com.pandawork.eat.mapper.query.OutStorageMapper;
 import com.pandawork.eat.service.query.OutStorageService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +8,6 @@ import org.springframework.stereotype.Service;
  */
 @Service(value = "outStorageService")
 public class OutStorageServiceImpl implements OutStorageService {
-    @Autowired
-    OutStorageMapper outStorageMapper;
+//    @Autowired
+//    OutStorageMapper outStorageMapper;
 }

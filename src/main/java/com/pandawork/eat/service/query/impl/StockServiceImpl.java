@@ -1,8 +1,6 @@
 package com.pandawork.eat.service.query.impl;
 
-import com.pandawork.eat.mapper.query.StockMapper;
 import com.pandawork.eat.service.query.StockService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +8,6 @@ import org.springframework.stereotype.Service;
  */
 @Service(value = "stockService")
 public class StockServiceImpl implements StockService {
-    @Autowired
-    StockMapper stockMapper;
+//    @Autowired
+//    StockMapper stockMapper;
 }
