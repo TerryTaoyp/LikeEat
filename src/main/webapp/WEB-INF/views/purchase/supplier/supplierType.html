@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>供货商类别管理</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <!--#include file="/views/common/link.html"-->
+</head>
+
+<body class="flat-green">
+    <div class="app-container expanded">
+        <div class="row content-container">
+            <!--#include file="/views/common/header.html"-->
+            <!--#include file="/views/common/sidebar.html"-->
+            <!-- Main Content -->
+            <div class="container-fluid">
+                <div class="side-body padding-top">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!-- 表格分页一系列js在142行 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <div class="title">供货商类别管理</div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <table class="datatable table table-striped" cellspacing="0" width="100%" id="list">
+                                        <thead>
+                                            <tr>
+                                                <th>序号</th>
+                                                <th>名称</th>
+                                                <th>备注</th>
+                                                <th>操作</th>
+                                                <th class="hidden"></th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>海鲜类</td>
+                                                <td>新鲜，可口，好吃</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success edit">修改</button>
+                                                    <button type="button" class="btn btn-danger del">删除</button>
+                                                </td>
+                                                <td class="hidden" id="typeId">8</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>人参类</td>
+                                                <td>自家生产，纯天然</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success edit">修改</button>
+                                                    <button type="button" class="btn btn-danger del">删除</button>
+                                                </td>
+                                                <td class="hidden" id="typeId">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>蔬菜类</td>
+                                                <td>纯天然，无添加</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success edit">修改</button>
+                                                    <button type="button" class="btn btn-danger del">删除</button>
+                                                </td>
+                                                <td class="hidden" id="typeId">6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>水果类</td>
+                                                <td>色泽鲜亮，新鲜，可口</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success edit">修改</button>
+                                                    <button type="button" class="btn btn-danger del">删除</button>
+                                                </td>
+                                                <td class="hidden" id="typeId">9</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>序号</th>
+                                                <th>名称</th>
+                                                <th>备注</th>
+                                                <th>操作</th>
+                                                <th class="hidden"></th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            <a class="btn btn-success btn-add" data-toggle="modal" data-target="#modalAddSuppType" role="button"> 添加</a>
+                        </div>
+                    </div>
+                </div>
+                <!--#include file="/views/common/footer.html"-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalAddSuppType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">供货商类别添加</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="addType">
+                        <div class="form-group">
+                            <label for="typeName">类型名称</label>
+                            <input type="text" class="form-control" id="typeName" placeholder="请输入供货商类别名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="remark">备注</label>
+                            <input type="text" class="form-control" id="remark" placeholder="请输入供货商类别备注">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="addSubmit">提交</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalEditSuppType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+    <!--#include file="/views/common/script.html"-->
+    <script type="text/javascript" src="/js/purchase/supplierType.js"></script>
+</body>
+
+</html>
