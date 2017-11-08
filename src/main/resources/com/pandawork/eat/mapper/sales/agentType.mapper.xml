@@ -3,5 +3,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pandawork.eat.mapper.sales.AgentTypeMapper">
+    <insert id="addAgentType">
+        INSERT INTO t_agent_type(
+        name,remark
+        )VALUES (
+        #{agentType.name},
+        #{agentType.remark}
+        )
+    </insert>
 
+    <delete id="delAgentType">
+        DELETE FROM t_agent_type  WHERE id = #{id}
+    </delete>
+
+    <update id="editAgentType">
+        UPDATE t_agent_type SET
+        name = #{agentType.name},
+        remark = #{agentType.remark}
+        WHERE id  = #{agentType.id}
+    </update>
+
+    <select id="listAll" resultMap="pw.AgentType">
+        SELECT * FROM t_agent_type
+    </select>
 </mapper>

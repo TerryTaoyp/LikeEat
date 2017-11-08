@@ -69,11 +69,11 @@ public class Customer {
 
     //邮箱1
     @Column(name = "email1")
-    private String eamil1;
+    private String email1;
 
     //邮箱2
     @Column(name = "email2")
-    private String eamil2;
+    private String email2;
 
     //客户类别
     @Column(name = "customer_type")
@@ -195,20 +195,20 @@ public class Customer {
         this.bankName = bankName;
     }
 
-    public String getEamil1() {
-        return eamil1;
+    public String getEmail1() {
+        return email1;
     }
 
-    public void setEamil1(String eamil1) {
-        this.eamil1 = eamil1;
+    public void setEmail1(String email1) {
+        this.email1 = email1;
     }
 
-    public String getEamil2() {
-        return eamil2;
+    public String getEmail2() {
+        return email2;
     }
 
-    public void setEamil2(String eamil2) {
-        this.eamil2 = eamil2;
+    public void setEmail2(String email2) {
+        this.email2 = email2;
     }
 
     public Integer getCustomerTypeId() {
@@ -244,8 +244,8 @@ public class Customer {
                 ", alipay='" + alipay + '\'' +
                 ", bankNum='" + bankNum + '\'' +
                 ", bankName='" + bankName + '\'' +
-                ", eamil1='" + eamil1 + '\'' +
-                ", eamil2='" + eamil2 + '\'' +
+                ", eamil1='" + email1 + '\'' +
+                ", eamil2='" + email2 + '\'' +
                 ", customerTypeId=" + customerTypeId +
                 ", remark='" + remark + '\'' +
                 '}';

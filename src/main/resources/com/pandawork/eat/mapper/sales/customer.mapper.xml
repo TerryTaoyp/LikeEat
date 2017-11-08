@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.eat.mapper.sales.CustomerMapper">
+    <insert id="addCustomer">
+        INSERT INTO t_customer(
+        customer_name ,
+        customer_unit_address,
+        delivery_address1,
+        delivery_address2,
+        delivery_address3,
+        telephone1,
+        telephone2,
+        telephone3,
+        qq,
+        wechat,
+        alipay,
+        bank_num,
+        bank_name,
+        email1,
+        email2,
+        customer_type,
+        remark
+        )VALUES (
+        #{customer.customerName},
+        #{customer.unitAddress},
+        #{customer.deliveryAddress1},
+        #{customer.deliveryAddress2},
+        #{customer.deliveryAddress3},
+        #{customer.telephone1},
+        #{customer.telephone2},
+        #{customer.telephone3},
+        #{customer.qq},
+        #{customer.weChat},
+        #{customer.alipay},
+        #{customer.bankNum},
+        #{customer.bankName},
+        #{customer.email1},
+        #{customer.email2},
+        #{customer.customerTypeId},
+        #{customer.remark}
+        )
+    </insert>
+
+    <delete id="delCustomer">
+        DELETE FROM t_customer WHERE id = #{id}
+    </delete>
+
+    <update id="editCustomer">
+        UPDATE t_customer SET
+        customer_name  = #{customer.customerName},
+        customer_unit_address = #{customer.unitAddress},
+        delivery_address1 = #{customer.deliveryAddress1},
+        delivery_address2 = #{customer.deliveryAddress2},
+        delivery_address3 = #{customer.deliveryAddress3},
+        telephone1 = #{customer.telephone1},
+        telephone2 = #{customer.telephone2},
+        telephone3 = #{customer.telephone3},
+        qq = #{customer.qq},
+        wechat = #{customer.weChat},
+        alipay = #{customer.alipay},
+        bank_num = #{customer.bankNum},
+        bank_name = #{customer.bankName},
+        email1 = #{customer.email1},
+        email2 = #{customer.email2},
+        customer_type = #{customer.customerTypeId},
+        remark = #{customer.remark}
+        WHERE id = #{customer.id}
+    </update>
+
+    <select id="listAll" resultMap="pw.Customer">
+        SELECT * FROM t_customer
+    </select>
+</mapper>

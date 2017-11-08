@@ -52,8 +52,17 @@ public enum EatException implements IBizExceptionMes{
     AddPurchaseOrderFailed("新增采购订单失败",1209),
     EditPurchaseOrderFailed("编辑采购订单信息失败",1210),
     DelPurchaseOrderFailed("删除采购订单失败",1211),
-    ListAllPurchaseOrderFailed("列出所有的采购订单失败",1212)
+    ListAllPurchaseOrderFailed("列出所有的采购订单失败",1212),
     //销售管理
+    AddAgentTypeFailed("新增代理商类别失败",1301),
+    DelAgentTypeFailed("删除代理商类别失败",1302),
+    EditAgentTypeFailed("编辑代理商类别失败",1303),
+    ListAllAgentType("列出所有的代理商类别失败",1304),
+
+    AddCustomerFailed("新增客户失败",1305),
+    DelCustomerFailed("删除客户失败",1306),
+    EditCustomerFailed("编辑客户信息失败",1307),
+    ListAllCustomerFailed("列出所有的客户信息",1308)
     //查询管理
 
 
