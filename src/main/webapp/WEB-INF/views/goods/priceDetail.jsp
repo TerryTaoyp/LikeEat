@@ -1,0 +1,63 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 石昊
+  Date: 2017/11/8
+  Time: 16:27
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">价格信息详情</h4>
+</div>
+<div class="modal-body">
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th scope="row">一级代理商</th>
+            <td>6元/斤</td>
+        </tr>
+        <tr>
+            <th scope="row">二级代理商</th>
+            <td>3元/斤</td>
+        </tr>
+        <tr>
+            <th scope="row">三级代理商</th>
+            <td>7元/斤</td>
+        </tr>
+        <tr>
+            <th scope="row">销售商</th>
+            <td>8元/斤</td>
+        </tr>
+        <tr>
+            <th scope="row">青铜会员</th>
+            <td>3元/斤</td>
+        </tr>
+        <tr>
+            <th scope="row">白银会员</th>
+            <td>3.5元/斤</td>
+        </tr>
+        <tr>
+            <th scope="row">黄金会员</th>
+            <td>4元/斤</td>
+        </tr>
+        <tr>
+            <th scope="row">白金会员</th>
+            <td>4.5元/斤</td>
+        </tr>
+        <tr>
+            <th scope="row">钻石会员</th>
+            <td>5元/斤</td>
+        </tr>
+        <tr>
+            <th scope="row">至尊会员</th>
+            <td>5.5元/斤</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+</div>
