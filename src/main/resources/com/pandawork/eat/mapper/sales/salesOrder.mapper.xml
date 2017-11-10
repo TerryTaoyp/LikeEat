@@ -3,5 +3,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pandawork.eat.mapper.sales.SalesOrderMapper">
+    <insert id="addSalesOrder">
+        INSERT INTO t_sales_order(
+        card_number,customer_id,sales_amount,express_fee
+        )VALUES (
+        #{salesOrder.cardNumber},
+        #{salesOrder.customerId},
+        #{salesOrder.salesAmount},
+        #{salesOrder.expressFee}
+        )
+    </insert>
+
+    <delete id="delSalesOrder">
+        DELETE FROM t_sales_order WHERE id = #{id}
+    </delete>
+
+    <update id="editSalesOrder">
+        UPDATE t_sales_order SET
+        card_number = #{salesOrder.cardNumber},
+        customer_id = #{salesOrder.customerId},
+        sales_amount = #{salesOrder.salesAmount},
+        express_fee = #{salesOrder.expressFee}
+        WHERE id = #{salesOrder.id}
+    </update>
 
 </mapper>

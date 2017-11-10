@@ -62,8 +62,43 @@ public enum EatException implements IBizExceptionMes{
     AddCustomerFailed("新增客户失败",1305),
     DelCustomerFailed("删除客户失败",1306),
     EditCustomerFailed("编辑客户信息失败",1307),
-    ListAllCustomerFailed("列出所有的客户信息",1308)
+    ListAllCustomerFailed("列出所有的客户信息",1308),
+
+    AddCustomerTypeFailed("新增客户类型失败",1309),
+    DelCustomerTypeFailed("删除客户类型失败",1310),
+    EditCustomerTypeFailed("编辑客户类型失败",1311),
+    ListAllCustomerTypeFailed("列出所有的客户类型失败",1312),
+
+    AddMemberFailed("新增会员失败",1313),
+    DelMemberFailed("删除会员失败",1314),
+    EditMemberFailed("编辑会员信息失败",1315),
+    ListAllMemberFailed("列出所有的会员信息失败",1316),
+
+    AddMemberTypeFailed("新增会员类型失败",1317),
+    DelMemberTypeFailed("删除会员类型失败",1318),
+    EditMemberTypeFailed("编辑会员类型失败",1319),
+    ListAllMemberTypeFailed("罗列会员类型失败",1320),
+
+    AddRetailerTypeFailed("新增供销商类别失败",1321),
+    DelRetailerTypeFailed("删除供销商类别失败",1322),
+    EditRetailerTypeFailed("编辑供销商类别失败",1323),
+    ListAllRetailerTypeFailed("罗列供销商类别失败",1324),
+    AddSalesOrderFailed("新增销售订单失败",1325),
+    DelSalesOrderFailed("删除销售订单失败",1326),
+    EditSalesOrderFailed("编辑销售订单信息失败",1327),
+
     //查询管理
+    AddInStorageFailed("新增入库信息失败",1401),
+    DelInStorageFailed("删除入库信息失败",1402),
+    EditInStorageFailed("编辑入库信息失败",1403),
+
+    AddOutStorageFailed("新增出库信息失败",1404),
+    DelOutStorageFailed("删除出库信息失败",1405),
+    EditOutStorageFailed("编辑出库信息失败",1406),
+
+    AddStockFailed("进入库存失败",1407),
+    DelStockFailed("删除某条库存信息失败",1408),
+    EditStockFailed("编辑库存信息失败",1409)
 
 
     ;

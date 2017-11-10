@@ -3,5 +3,37 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pandawork.eat.mapper.query.InStorageMapper">
+    <insert id="addInStorage">
+        INSERT INTO t_in_storage(
+        supplier_id,
+        goods_id,
+        price_id,
+        number,
+        in_data,
+        sum_money
+        )VALUES (
+        #{inStorage.supplierId},
+        #{inStorage.goodsId},
+        #{inStorage.priceId},
+        #{inStorage.number},
+        #{inStorage.inData},
+        #{inStorage.sumMoney}
+        )
+    </insert>
+
+    <delete id="delInStorage">
+        DELETE FROM t_in_storage WHERE id = #{id}
+    </delete>
+
+    <update id="editInStorage">
+        UPDATE t_in_storage SET
+        supplier_id = #{inStorage.supplierId},
+        goods_id = #{inStorage.goodsId},
+        price_id = #{inStorage.priceId},
+        number = #{inStorage.number},
+        in_data = #{inStorage.inData},
+        sum_money = #{inStorage.sumMoney}
+        WHERE id = #{inStorage.id}
+    </update>
 
 </mapper>

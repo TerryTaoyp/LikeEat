@@ -86,4 +86,5 @@ public class CustomerServiceTest extends AbstractTestCase {
     public void listAll()throws SSException{
         customerService.listAll();
     }
+
 }

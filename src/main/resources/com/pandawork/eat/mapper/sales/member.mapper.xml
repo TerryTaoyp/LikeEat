@@ -4,4 +4,49 @@
 
 <mapper namespace="com.pandawork.eat.mapper.sales.MemberMapper">
 
+    <insert id="addMember">
+        INSERT INTO t_member(
+        card_number,
+        mName,
+        sex,
+        birthday,
+        id_number,
+        phone,
+        card_data,
+        type_id,
+        consumption_points
+        )VALUES (
+        #{member.cardNumber},
+        #{member.mName},
+        #{member.sex},
+        #{member.birthday},
+        #{member.idNumber},
+        #{member.phone},
+        #{member.cardData},
+        #{member.typeId},
+        #{member.points}
+        )
+    </insert>
+
+    <delete id="delMember">
+        DELETE FROM t_member WHERE id = #{id}
+    </delete>
+
+    <update id="editMember">
+        UPDATE t_member SET
+        card_number = #{member.cardNumber},
+        mName = #{member.mName},
+        sex = #{member.sex},
+        birthday = #{member.birthday},
+        id_number = #{member.idNumber},
+        phone = #{member.phone},
+        card_data = #{member.cardData},
+        type_id = #{member.typeId},
+        consumption_points = #{member.points}
+        WHERE id = #{member.id}
+    </update>
+
+    <select id="listAll" resultMap="pw.Member">
+        SELECT * FROM t_member
+    </select>
 </mapper>

@@ -3,5 +3,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pandawork.eat.mapper.sales.CustomerTypeMapper">
+    <insert id="addCustomerType">
+        INSERT INTO t_customer_type(
+          name,remark
+        )VALUES (
+        #{customerType.name},
+        #{customerType.remark}
+        )
+    </insert>
 
+    <delete id="delCustomerType">
+        DELETE FROM t_customer_type WHERE id = #{id}
+    </delete>
+
+    <update id="editCustomerType">
+        UPDATE t_customer_type SET
+        name = #{customerType.name},
+        remark = #{customerType.remark}
+        WHERE id = #{customerType.id}
+    </update>
+
+    <select id="listAll" resultMap="pw.CustomerType">
+        SELECT * FROM t_customer_type
+    </select>
 </mapper>

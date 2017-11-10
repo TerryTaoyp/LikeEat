@@ -3,5 +3,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pandawork.eat.mapper.query.StockMapper">
+    <insert id="addStock">
+        INSERT INTO t_stock(
+        goods_id,
+        averages_price,
+        number,
+        sum_money
+        )VALUES (
+        #{stock.goodsId},
+        #{stock.averagesPrice},
+        #{stock.number},
+        #{stock.sumMoney}
+        )
+    </insert>
 
+    <delete id="delStock">
+        DELETE FROM t_stock WHERE id = #{id}
+    </delete>
+
+    <update id="editStock">
+        UPDATE t_stock SET
+        goods_id = #{stock.goodsId},
+        averages_price = #{stock.averagesPrice},
+        number = #{stock.number},
+        sum_money = #{stock.sumMoney}
+        WHERE id = #{stock.id}
+    </update>
 </mapper>

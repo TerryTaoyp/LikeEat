@@ -3,5 +3,39 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pandawork.eat.mapper.query.OutStorageMapper">
+    <insert id="addOutStorage">
+        INSERT INTO t_out_storage(
+        goods_id,
+        price_id,
+        sell_number,
+        sell_money,
+        customer_id,
+        express_fee,
+        other_fee
+        )VALUES (
+        #{outStorage.goodsId},
+        #{outStorage.priceId},
+        #{outStorage.sellNumber},
+        #{outStorage.sellMoney},
+        #{outStorage.customerId},
+        #{outStorage.expressFee},
+        #{outStorage.otherFee}
+        )
+    </insert>
 
+    <delete id="delOutStorage">
+        DELETE FROM t_out_storage WHERE id = #{id}
+    </delete>
+
+    <update id="editOutStorage">
+        UPDATE t_out_storage SET
+        goods_id = #{outStorage.goodsId},
+        price_id = #{outStorage.priceId},
+        sell_number = #{outStorage.sellNumber},
+        sell_money = #{outStorage.sellMoney},
+        customer_id = #{outStorage.customerId},
+        express_fee = #{outStorage.expressFee},
+        other_fee = #{outStorage.otherFee}
+        WHERE id = #{outStorage.id}
+    </update>
 </mapper>
