@@ -189,7 +189,7 @@
     </div>
 </div>
 <jsp:include page="../common/script.jsp"/>
-<script type="text/javascript" src="../../../resources/js/system/user.js"></script>
+<script type="text/javascript" src="${staticWebsite}/js/system/user.js"></script>
 </body>
 
 </html>

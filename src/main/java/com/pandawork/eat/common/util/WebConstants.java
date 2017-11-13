@@ -49,7 +49,7 @@ public final class WebConstants {
 
     //本地地址
     public final static String website = "http://localhost:8080/";
-    public final static String staticWebsite = "http://localhost:8080/resources/js";
+    public final static String staticWebsite = "http://localhost:8080/resources";
 
 
 

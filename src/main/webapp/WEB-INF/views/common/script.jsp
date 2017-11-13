@@ -7,18 +7,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Javascript Libs -->
-<script type="text/javascript" src="../../../resources/lib/js/jquery.min.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/Chart.min.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/bootstrap-switch.min.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/jquery.matchHeight-min.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/select2.full.min.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/distpicker.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/ace/ace.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/ace/mode-html.js"></script>
-<script type="text/javascript" src="../../../resources/lib/js/ace/theme-github.js"></script>
+<script src="${staticWebsite}/lib/js/jquery.min.js"></script>
+<script src="${staticWebsite}/lib/js/bootstrap.min.js"></script>
+<script src="${staticWebsite}/lib/js/Chart.min.js"></script>
+<script src="${staticWebsite}/lib/js/bootstrap-switch.min.js"></script>
+<script src="${staticWebsite}/lib/js/jquery.matchHeight-min.js"></script>
+<script src="${staticWebsite}/lib/js/jquery.dataTables.min.js"></script>
+<script src="${staticWebsite}/lib/js/dataTables.bootstrap.min.js"></script>
+<script src="${staticWebsite}/lib/js/select2.full.min.js"></script>
+<script src="${staticWebsite}/lib/js/distpicker.js"></script>
+<script src="${staticWebsite}/lib/js/ace/ace.js"></script>
+<script src="${staticWebsite}/lib/js/ace/mode-html.js"></script>
+<script src="${staticWebsite}/lib/js/ace/theme-github.js"></script>
 <!-- Javascript -->
-<script type="text/javascript" src="../../../resources/js/common/app.js"></script>
+<script src="${staticWebsite}/js/common/app.js"></script>
+<script src="${staticWebsite}/js/site-config.js"></script>
 

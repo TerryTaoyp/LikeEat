@@ -144,7 +144,7 @@
     </div>
 </div>
 <jsp:include page="../common/script.jsp"/>
-<script type="text/javascript" src="../../../resources/js/goods/goodsType.js"></script>
+<script type="text/javascript" src="${staticWebsite}/js/goods/goodsType.js"></script>
 </body>
 
 </html>

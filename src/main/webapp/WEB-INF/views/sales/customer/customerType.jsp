@@ -156,7 +156,7 @@
     </div>
 </div>
 <jsp:include page="../../common/script.jsp"/>
-<script type="text/javascript" src="../../../../resources/js/sales/customerType.js"></script>
+<script type="text/javascript" src="${staticWebsite}/js/sales/customerType.js"></script>
 </body>
 
 </html>

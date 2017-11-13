@@ -54,7 +54,7 @@
                                                 <button type="button" class="btn btn-success edit">修改</button>
                                                 <button type="button" class="btn btn-danger del">删除</button>
                                             </td>
-                                            <td class="hidden" id="roleId">62</td>
+                                            <td class="hidden" id="roleId">${role.id}</td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -137,7 +137,7 @@
     </div>
 </div>
 <jsp:include page="../common/script.jsp"/>
-<script type="text/javascript" src="${staticWebsite}/system/role.js"></script>
+<script src="${staticWebsite}/js/system/role.js"></script>
 </body>
 
 </html>

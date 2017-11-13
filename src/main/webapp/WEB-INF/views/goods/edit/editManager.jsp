@@ -48,7 +48,7 @@
     <button type="button" class="btn btn-success" id="editSubmit">提交</button>
     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 </div>
-<script type="text/javascript" src="../../../../resources/lib/js/distpicker.js"></script>
+<script type="text/javascript" src="${staticWebsite}lib/js/distpicker.js"></script>
 <script>
     $("#editSubmit").click(function(){
         var editGoodsName=$("#editGoodsName").val();

@@ -141,7 +141,7 @@
     </div>
 </div>
 <jsp:include page="../common/script.jsp"/>
-<script type="text/javascript" src="../../../resources/js/goods/goodsPrice.js"></script>
+<script type="text/javascript" src="${staticWebsite}/js/goods/goodsPrice.js"></script>
 </body>
 
 </html>

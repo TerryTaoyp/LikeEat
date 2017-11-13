@@ -126,7 +126,7 @@
     </div>
 </div>
 <jsp:include page="../common/script.jsp"/>
-<script type="text/javascript" src="../../../resources/js/purchase/purchaseOrderList.js"></script>
+<script type="text/javascript" src="${staticWebsite}/js/purchase/purchaseOrderList.js"></script>
 </body>
 
 </html>

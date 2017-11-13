@@ -49,7 +49,7 @@
     <button type="button" class="btn btn-success" id="addSubmit">提交</button>
     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 </div>
-<script type="text/javascript" src="../../../../resources/lib/js/distpicker.js"></script>
+<script type="text/javascript" src="${staticWebsite}lib/js/distpicker.js"></script>
 <script>
     $("#addSubmit").click(function () {
         var goodsName = $("#goodsName").val();

@@ -33,7 +33,7 @@
                 <label for="password">密码</label>
                 <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码" />
             </div>
-            <button role="button" class="btn btn-success" id="submit">登录</button>
+            <button type="submit" role="button" class="btn btn-success" id="submit">登录</button>
         </form>
         <div>${msg}</div>
     </div>
@@ -42,7 +42,6 @@
     </div>
 </div>
 <jsp:include page="common/script.jsp"/>
-<script type="text/javascript" src="../resources/js/user/login.js"></script>
 </body>
 
 </html>

@@ -115,7 +115,7 @@
     </div>
 </div>
 <jsp:include page="../common/script.jsp"/>
-<script type="text/javascript" src="../../../resources/js/query/stockQuery.js"></script>
+<script type="text/javascript" src="${staticWebsite}/js/query/stockQuery.js"></script>
 </body>
 
 </html>
