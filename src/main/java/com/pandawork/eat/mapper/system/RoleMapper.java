@@ -38,4 +38,12 @@ public interface RoleMapper {
      * @throws SSException
      */
     public List<Role> listAll()throws SSException;
+
+    /**
+     * 根据 ID查询
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public Role queryById(@Param("id") int id)throws SSException;
 }

@@ -37,4 +37,12 @@ public interface RoleService {
      * @throws SSException
      */
     public List<Role> listAll()throws SSException;
+
+    /**
+     * 根据ID查询
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public Role queryById(int id)throws SSException;
 }

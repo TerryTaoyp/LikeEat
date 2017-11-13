@@ -18,6 +18,7 @@ public enum EatException implements IBizExceptionMes{
     UpdateRoleFailed("更新角色信息失败",1009),
     DelRoleFailed("删除角色信息失败",1010),
     ListAllRoleFailed("列出所有的角色",1011),
+    QueryRoleByIDFailed("根据ID查询角色失败",1012),
 
     //商品管理
     AddGoodsFailed("新增商品失败",1101),

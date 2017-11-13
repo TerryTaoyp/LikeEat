@@ -7,6 +7,7 @@ import com.pandawork.eat.web.controller.AbstractController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,6 +32,20 @@ public class RoleController extends AbstractController {
         List<Role> roleList = roleService.listAll();
         model.addAttribute("roleList",roleList);
         return "system/role";
+    }
+
+    /**
+     * 跳转到修改页面
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/to/edit/{id}",method = RequestMethod.GET)
+    public String toEdit(@PathVariable("id") int id,Model model) throws SSException {
+        Role role = roleService.queryById(id);
+
+        model.addAttribute("role",role);
+        return "system/edit/editRole";
+
     }
 
 

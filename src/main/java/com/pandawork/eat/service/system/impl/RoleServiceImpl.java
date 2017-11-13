@@ -73,4 +73,17 @@ public class RoleServiceImpl implements RoleService {
         }
 
     }
+
+    @Override
+    public Role queryById(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return null;
+            }
+            return roleMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.QueryRoleByIDFailed);
+        }
+    }
 }
