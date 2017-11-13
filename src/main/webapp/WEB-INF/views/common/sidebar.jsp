@@ -31,9 +31,9 @@
                                 </li>
                                 <li><a href="#">数据库导出</a>
                                 </li>
-                                <li><a href="/views/system/role.html">角色管理</a>
+                                <li><a href="${website}/role/list">角色管理</a>
                                 </li>
-                                <li><a href="/views/system/user.html">用户管理</a>
+                                <li><a href="${website}/user/list">用户管理</a>
                                 </li>
                             </ul>
                         </div>

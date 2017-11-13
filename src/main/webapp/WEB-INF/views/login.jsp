@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
-    <jsp:include page="../common/link.jsp"/>
+    <jsp:include page="common/link.jsp"/>
 </head>
 
 <body class="flat-green">
@@ -24,24 +24,25 @@
 <!-- Form Module-->
 <div class="module form-module">
     <div class="form">
-        <form>
+        <form action="${website}/login" method="post">
             <div  class="form-group">
                 <label for="username">用户名</label>
-                <input type="text" class="form-control" id="username" placeholder="请输入用户名" />
+                <input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名" />
             </div>
             <div class="form-group">
                 <label for="password">密码</label>
-                <input type="password" class="form-control" id="password" placeholder="请输入密码" />
+                <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码" />
             </div>
             <button role="button" class="btn btn-success" id="submit">登录</button>
         </form>
+        <div>${msg}</div>
     </div>
     <div class="cta">
         <p>忘记密码请联系管理员</p>
     </div>
 </div>
-<jsp:include page="../common/script.jsp"/>
-<script type="text/javascript" src="../../../resources/js/user/login.js"></script>
+<jsp:include page="common/script.jsp"/>
+<script type="text/javascript" src="../resources/js/user/login.js"></script>
 </body>
 
 </html>

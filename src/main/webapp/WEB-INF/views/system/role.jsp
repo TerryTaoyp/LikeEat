@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html>
 
@@ -45,42 +46,17 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>超级管理员</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="roleId">62</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>管理员</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="roleId">63</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>经理</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="roleId">64</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>员工</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="roleId">65</td>
-                                    </tr>
+                                    <c:forEach items="${roleList}" var="role" varStatus="status">
+                                        <tr>
+                                            <td>${status.index+1}</td>
+                                            <td>${role.role}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success edit">修改</button>
+                                                <button type="button" class="btn btn-danger del">删除</button>
+                                            </td>
+                                            <td class="hidden" id="roleId">62</td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                     <tfoot>
                                     <tr>
@@ -161,7 +137,7 @@
     </div>
 </div>
 <jsp:include page="../common/script.jsp"/>
-<script type="text/javascript" src="../../../resources/js/system/role.js"></script>
+<script type="text/javascript" src="${staticWebsite}/system/role.js"></script>
 </body>
 
 </html>

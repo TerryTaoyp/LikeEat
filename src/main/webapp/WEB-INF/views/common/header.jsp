@@ -29,10 +29,10 @@
                     <ul class="dropdown-menu animated fadeInDown">
                         <li>
                             <div class="profile-info">
-                                <h4 class="username">石昊</h4>
-                                <p>管理员</p>
+                                <h4 class="username">${sessionScope.username}</h4>
+                                <p>${sessionScope.role}</p>
                                 <div class="btn-group margin-bottom-2x" role="group">
-                                    <a role="button" class="btn btn-default" href="/views/user/login.html"><i class="fa fa-sign-out"></i> 退出登录</a>
+                                    <a role="button" class="btn btn-default" href="${website}/logout"><i class="fa fa-sign-out"></i> 退出登录</a>
                                 </div>
                             </div>
                         </li>
