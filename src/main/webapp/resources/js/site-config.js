@@ -25,10 +25,16 @@
             system: {
                 //角色管理
                 role: {
-                    edit: site.website+'role/to/edit/',//跳转修改页面
-                    update: site.website+'role/edit',//提交修改数据
-                    add: site.website+'role/add',//提交添加数据
-                    del: site.website+'role/del'//提交删除数据
+                    edit: site.website+'role/to/edit/',//跳转修改角色页面
+                    update: site.website+'role/edit',//提交修改角色
+                    add: site.website+'role/add',//提交添加角色
+                    del: site.website+'role/del'//提交删除角色
+                },
+                user:{
+                    add: site.website+'user/add',//提交添加用户
+                    edit: site.website+'user/to/edit/',//跳转修改用户页面
+                    update: site.website+'user/edit',//提交修改用户
+                    del: site.website+'user/edl'//提交删除角色
                 }
             }
         },

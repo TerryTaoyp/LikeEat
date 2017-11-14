@@ -58,7 +58,6 @@
         $("#editRadio${role.powerId}").attr('checked','true');
     });
     $("#editSubmit").click(function () {
-        var editRoleId=${role.id};
         var editRoleName = $("#editRoleName").val();
         var editPower = $("[name='editPower']").filter(":checked").val();
         $.ajax({
@@ -66,7 +65,7 @@
             url: _ajax.url.system.role.update,
             dataType: "json",
             data: {
-                id: editRoleId,
+                id: ${role.id},
                 role: editRoleName,
                 power: editPower,
             },

@@ -69,7 +69,7 @@ public class UserController extends AbstractController{
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/to/edit",method = RequestMethod.GET)
+    @RequestMapping(value = "/to/edit/{id}",method = RequestMethod.GET)
     public String toEdit(@PathVariable("id") int id,Model model)throws SSException{
         User user = userService.queryById(id);
         model.addAttribute("user",user);
@@ -78,24 +78,33 @@ public class UserController extends AbstractController{
 
     /**
      * 更新用户信息
-     * @param user
+     * @param id
+     * @param username
+     * @param realName
+     * @param idCard
+     * @param phone
+     * @param roleId
      * @return
      * @throws SSException
      */
+    @ResponseBody
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    public String edit(@RequestParam("user") User user)throws SSException{
-
-        try {
-            if (Assert.isNull(user)){
-                return null;
-            }
-            userService.updatePassword(user);
-            return "redirect:/user/list";
-        }catch (Exception e){
-            LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
+    public JSONObject edit(@RequestParam("id")int id,@RequestParam("username")String username,@RequestParam("realName")String realName,
+                       @RequestParam("idCard")String idCard,@RequestParam("phone")String phone,@RequestParam("roleId")int roleId)throws SSException{
+        User user = userService.queryById(id);
+        if(user==null){
+            return sendJsonObject(0);
+        }else {
+            user.setId(id);
+            user.setUsername(username);
+            user.setIdCard(idCard);
+            user.setPhone(phone);
+            user.setRealName(realName);
+            user.setRoleId(roleId);
+            userService.updateUser(user);
+            return sendJsonObject(1);
         }
+
     }
 
     /**

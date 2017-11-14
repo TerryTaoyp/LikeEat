@@ -49,7 +49,7 @@
                                     <c:forEach items="${roleList}" var="role" varStatus="status">
                                         <tr>
                                             <td>${status.index+1}</td>
-                                            <td>${role.role}</td>
+                                            <td id="role">${role.role}</td>
                                             <td>
                                                 <button type="button" class="btn btn-success edit">修改</button>
                                                 <button type="button" class="btn btn-danger del">删除</button>

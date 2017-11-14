@@ -16,26 +16,22 @@
     <form>
         <div class="row">
             <div class="form-group col-lg-6">
-                <label for="editUserName">姓名</label>
-                <input type="text" class="form-control" id="editUserName" placeholder="请输入用户姓名">
+                <label for="editRealName">姓名</label>
+                <input type="text" class="form-control" id="editRealName" value="${user.realName}">
             </div>
             <div class="form-group col-lg-6">
-                <label for="editPhone">电话</label>
-                <input type="text" class="form-control" id="editPhone" placeholder="请输入电话号码">
+                <label for="editUserName">用户名</label>
+                <input type="text" class="form-control" id="editUserName" value="${user.username}">
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-lg-4">
-                <label for="oldPassword">原密码</label>
-                <input type="password" class="form-control" id="oldPassword" placeholder="请输入原密码">
+            <div class="form-group col-lg-6">
+                <label for="editPhone">电话</label>
+                <input type="text" class="form-control" id="editPhone" value="${user.phone}">
             </div>
-            <div class="form-group col-lg-4">
-                <label for="editPassword">新密码</label>
-                <input type="password" class="form-control" id="editPassword" placeholder="请输入新密码">
-            </div>
-            <div class="form-group col-lg-4">
-                <label for="re-editPassword">重复密码</label>
-                <input type="password" class="form-control" id="re-editPassword" placeholder="请再一次输入新密码">
+            <div class="form-group col-lg-6">
+                <label for="editIdCard">身份证号</label>
+                <input type="text" class="form-control" id="editIdCard" value="${user.idCard}">
             </div>
         </div>
         <div class="form-group">
@@ -74,14 +70,41 @@
     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 </div>
 <script>
-    $("#editSubmit").click(function () {
+    $(document).ready(function () {
+        $("#editRadio${user.roleId}").attr('checked', true);
+    });
 
+    $("#editSubmit").click(function () {
+        var editRealName = $("#editRealName").val();
         var editUserName = $("#editUserName").val();
         var editPhone = $("#editPhone").val();
-        var oldPassword = $("#oldPassword").val();
-        var editPassword = $("#editPassword").val();
-        var re_editPassword = $("#re-editPassword").val();
         var editRole = $("[name='editRole']").filter(":checked").val();
-        alert(editUserName + "+" + editPhone + "+" + oldPassword + "+" + editPassword + "+" + re_editPassword + "+" + editRole);
+        var editIdCard = $("#editIdCard").val();
+        $.ajax({
+            type: "post",
+            url: _ajax.url.system.user.update,
+            dataType: "json",
+            data: {
+                id: ${user.id},
+                username: editUserName,
+                realName: editRealName,
+                idCard: editIdCard,
+                phone: editPhone,
+                roleId: editRole,
+            },
+            success: function (data) {
+                if (data.code) {
+                    // 提示信息
+                    alert('修改成功');
+                    location.reload(true);
+                }
+                else {
+                    alert('修改失败');
+                }
+            },
+            error: function () {
+                console.log("获取JSON数据异常");
+            }
+        })
     });
 </script>

@@ -1,13 +1,13 @@
 $(document).ready(function () {
     $('#list').dataTable({
-        "aoColumnDefs": [ { "bSortable": false, "aTargets": [ 2 ] }]
+        "aoColumnDefs": [{"bSortable": false, "aTargets": [2]}]
     });
 });
 
 $(".edit").click(function () {
-    var id=$(this).parents("tr").find("#roleId").text();
+    var id = $(this).parents("tr").find("#roleId").text();
     $("#modalEditRole").modal({
-        remote: _ajax.url.system.role.edit+id
+        remote: _ajax.url.system.role.edit + id
     });
 });
 
@@ -19,34 +19,37 @@ $("#modalAddRole").on("hidden.bs.modal", function () {
     document.getElementById("addRole").reset();
 });
 
-$(".del").click(function(){
-    var id=$(this).parents("tr").find("#roleId").text();
-    $.ajax({
-        type: "post",
-        url: _ajax.url.system.role.del,
-        dataType: "json",
-        data:{
-            id:id
-        },
-        success: function(data) {
-            if (data.code) {
-                // 提示信息
-                alert('删除成功');
-                location.reload(true);
+$(".del").click(function () {
+    var name = $(this).parents("tr").find("#role").text();
+    if (confirm("您确定要删除角色：" + name + " 吗？") == true) {
+        var id = $(this).parents("tr").find("#roleId").text();
+        $.ajax({
+            type: "post",
+            url: _ajax.url.system.role.del,
+            dataType: "json",
+            data: {
+                id: id
+            },
+            success: function (data) {
+                if (data.code) {
+                    // 提示信息
+                    alert('删除成功');
+                    location.reload(true);
+                }
+                else {
+                    alert('删除失败，请联系管理员');
+                }
+            },
+            error: function () {
+                console.log("获取JSON数据异常");
             }
-            else{
-                alert('删除失败，请联系管理员');
-            }
-        },
-        error: function () {
-            console.log("获取JSON数据异常");
-        }
-    })
+        })
+    }
 });
 
-$("#addSubmit").click(function(){
-    var roleName=$("#roleName").val();
-    var power=$("[name='power']").filter(":checked").val();
+$("#addSubmit").click(function () {
+    var roleName = $("#roleName").val();
+    var power = $("[name='power']").filter(":checked").val();
     $.ajax({
         type: "post",
         url: _ajax.url.system.role.add,
@@ -55,13 +58,13 @@ $("#addSubmit").click(function(){
             role: roleName,
             power: power,
         },
-        success: function(data) {
+        success: function (data) {
             if (data.code) {
                 // 提示信息
                 alert('添加成功');
                 location.reload(true);
             }
-            else{
+            else {
                 alert('添加失败');
             }
         },

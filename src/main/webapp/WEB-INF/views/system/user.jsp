@@ -96,11 +96,15 @@
             <div class="modal-body">
                 <form id="addUser">
                     <div class="row">
-                        <div class="form-group col-lg-6">
-                            <label for="userName">姓名</label>
+                        <div class="form-group col-lg-4">
+                            <label for="realName">姓名</label>
+                            <input type="text" class="form-control" id="realName" placeholder="请输入用户姓名">
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="userName">用户名</label>
                             <input type="text" class="form-control" id="userName" placeholder="请输入用户姓名">
                         </div>
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-4">
                             <label for="phone">电话</label>
                             <input type="text" class="form-control" id="phone" placeholder="请输入电话号码">
                         </div>

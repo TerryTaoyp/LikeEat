@@ -1,12 +1,13 @@
 $(document).ready(function () {
     $('#list').dataTable({
-        "aoColumnDefs": [{ "bSortable": false, "aTargets": [4] }]
+        "aoColumnDefs": [{"bSortable": false, "aTargets": [4]}]
     });
 });
 
 $(".edit").click(function () {
+    var id = $(this).parents("tr").find("#userId").text();
     $("#modalEditUser").modal({
-        remote: "edit/editUser.html"
+        remote: _ajax.url.system.user.edit+id
     });
 });
 
