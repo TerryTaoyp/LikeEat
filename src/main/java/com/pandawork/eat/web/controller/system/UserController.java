@@ -44,22 +44,27 @@ public class UserController extends AbstractController{
 
     /**
      * 新增用户
-     * @param user
+     * @param username
+     * @param realName
+     * @param idCard
+     * @param phone
+     * @param roleId
      * @return
      * @throws SSException
      */
+    @ResponseBody
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String addUser(@RequestParam("user") User user)throws SSException{
-        try {
-            if (user!=null){
-                userService.insertUser(user);
-            }
-            return "redirect:/user/list";
-        }catch (Exception e){
-            LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
-        }
+    public JSONObject addUser(@RequestParam("username")String username,@RequestParam("realName")String realName,
+                          @RequestParam("idCard")String idCard,@RequestParam("phone")String phone,@RequestParam("roleId")int roleId)throws SSException{
+        User user = new User();
+        user.setUsername(username);
+        user.setIdCard(idCard);
+        user.setPhone(phone);
+        user.setRealName(realName);
+        user.setRoleId(roleId);
+        user.setPassword("123456");
+        userService.insertUser(user);
+        return sendJsonObject(1);
     }
 
     /**
@@ -95,7 +100,6 @@ public class UserController extends AbstractController{
         if(user==null){
             return sendJsonObject(0);
         }else {
-            user.setId(id);
             user.setUsername(username);
             user.setIdCard(idCard);
             user.setPhone(phone);
@@ -114,8 +118,8 @@ public class UserController extends AbstractController{
      * @throws SSException
      */
     @ResponseBody
-    @RequestMapping(value = "/del",method = RequestMethod.GET)
-    public JSONObject del(@PathVariable("id") int id)throws SSException{
+    @RequestMapping(value = "/del",method = RequestMethod.POST)
+    public JSONObject del(@RequestParam("id") int id)throws SSException{
         if (Assert.isNotNull(id)){
             userService.delUser(id);
             return sendJsonObject(1);

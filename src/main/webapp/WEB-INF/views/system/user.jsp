@@ -51,7 +51,7 @@
                                     <c:forEach items="${userList}" var="user" varStatus="status">
                                         <tr>
                                             <td>${status.index+1}</td>
-                                            <td>${user.username}</td>
+                                            <td id="user">${user.realName}</td>
                                             <td>${user.roleId}</td>
                                             <td>${user.phone}</td>
                                             <td>
@@ -96,27 +96,23 @@
             <div class="modal-body">
                 <form id="addUser">
                     <div class="row">
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-6">
                             <label for="realName">姓名</label>
                             <input type="text" class="form-control" id="realName" placeholder="请输入用户姓名">
                         </div>
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-6">
                             <label for="userName">用户名</label>
                             <input type="text" class="form-control" id="userName" placeholder="请输入用户姓名">
-                        </div>
-                        <div class="form-group col-lg-4">
-                            <label for="phone">电话</label>
-                            <input type="text" class="form-control" id="phone" placeholder="请输入电话号码">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <label for="password">密码</label>
-                            <input type="password" class="form-control" id="password" placeholder="请输入密码">
+                            <label for="idCard">身份证号</label>
+                            <input type="text" class="form-control" id="idCard" placeholder="请输入用户身份证号">
                         </div>
                         <div class="form-group col-lg-6">
-                            <label for="re-password">重复密码</label>
-                            <input type="password" class="form-control" id="re-password" placeholder="请再一次输入密码">
+                            <label for="phone">电话</label>
+                            <input type="text" class="form-control" id="phone" placeholder="请输入电话号码">
                         </div>
                     </div>
                     <div class="form-group">
