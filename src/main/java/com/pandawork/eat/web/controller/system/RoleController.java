@@ -55,6 +55,7 @@ public class RoleController extends AbstractController {
      * @return
      * @throws SSException
      */
+    @ResponseBody
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
     public JSONObject edit(@RequestParam("id") int id,@RequestParam("role") String role, @RequestParam("power") int power)throws SSException{
         Role role1 = roleService.queryById(id);
@@ -74,13 +75,14 @@ public class RoleController extends AbstractController {
      * @param power
      * @return
      */
+    @ResponseBody
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String addRole(@RequestParam("role") String role,@RequestParam("power") int power) throws SSException {
+    public JSONObject addRole(@RequestParam("role") String role,@RequestParam("power") int power) throws SSException {
         Role role1 = new Role();
         role1.setRole(role);
         role1.setPowerId(power);
         roleService.addRole(role1);
-        return "redirect:/role/list";
+        return sendJsonObject(1);
     }
 
     /**
