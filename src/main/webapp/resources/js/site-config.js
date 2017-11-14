@@ -21,21 +21,14 @@
         },
         //ajax地址信息
         url: {
-            //系统考核
+            //系统管理
             system: {
                 //角色管理
                 role: {
-                    // 列表
-                    list: {
-                        test: site.staticWebsite + 'mock/plan_management.json',
-                        update: site.website + 'role/ajax/update', // 点击
-                        del: site.website + 'role/ajax/del', //删除
-                        submit: site.website + 'role/update'// 提交
-                    },
-                    // 添加
-                    add: {
-                        // 暂无
-                    }
+                    edit: site.website+'role/to/edit/',//跳转修改页面
+                    update: site.website+'role/edit',//提交修改数据
+                    add: site.website+'role/add',//提交添加数据
+                    del: site.website+'role/del'//提交删除数据
                 }
             }
         },

@@ -58,7 +58,7 @@
                                                 <button type="button" class="btn btn-success edit">修改</button>
                                                 <button type="button" class="btn btn-danger del">删除</button>
                                             </td>
-                                            <td class="hidden" id="userId">62</td>
+                                            <td class="hidden" id="userId">${user.id}</td>
                                         </tr>
                                     </c:forEach>
 

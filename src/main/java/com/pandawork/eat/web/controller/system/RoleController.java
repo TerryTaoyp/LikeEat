@@ -91,8 +91,8 @@ public class RoleController extends AbstractController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "/del",method = RequestMethod.GET)
-    public JSONObject delRole(@PathVariable("id") int id) throws SSException {
+    @RequestMapping(value = "/del",method = RequestMethod.POST)
+    public JSONObject delRole(@RequestParam("id") int id) throws SSException {
         if (Assert.isNotNull(id)){
             userService.delUser(id);
             return sendJsonObject(1);

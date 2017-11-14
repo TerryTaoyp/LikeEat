@@ -13,11 +13,10 @@
     <h4 class="modal-title" id="myModalLabel">角色修改</h4>
 </div>
 <div class="modal-body">
-    <form id="${website}/role/edit">
-
+    <form>
         <div class="form-group">
             <label for="editRoleName">角色名称</label>
-            <input type="text" class="form-control" id="editRoleName" name="role" placeholder="请输入角色名称">
+            <input type="text" class="form-control" id="editRoleName" name="role" value="${role.role}">
         </div>
         <div class="form-group">
             <label>角色权限</label>
@@ -55,9 +54,35 @@
     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 </div>
 <script>
+    $(document).ready(function () {
+        $("#editRadio${role.powerId}").attr('checked','true');
+    });
     $("#editSubmit").click(function () {
+        var editRoleId=${role.id};
         var editRoleName = $("#editRoleName").val();
         var editPower = $("[name='editPower']").filter(":checked").val();
-        alert(editRoleName + "+" + editPower);
+        $.ajax({
+            type: "post",
+            url: _ajax.url.system.role.update,
+            dataType: "json",
+            data: {
+                id: editRoleId,
+                role: editRoleName,
+                power: editPower,
+            },
+            success: function(data) {
+                if (data.code) {
+                    // 提示信息
+                    alert('修改成功');
+                    location.reload(true);
+                }
+                else{
+                    alert('修改失败');
+                }
+            },
+            error: function () {
+                console.log("获取JSON数据异常");
+            }
+        })
     });
 </script>
