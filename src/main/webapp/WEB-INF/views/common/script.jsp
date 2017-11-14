@@ -19,7 +19,8 @@
 <script src="${staticWebsite}/lib/js/ace/ace.js"></script>
 <script src="${staticWebsite}/lib/js/ace/mode-html.js"></script>
 <script src="${staticWebsite}/lib/js/ace/theme-github.js"></script>
+<script src="${staticWebsite}/js/site-config.js"></script>
 <!-- Javascript -->
 <script src="${staticWebsite}/js/common/app.js"></script>
-<script src="${staticWebsite}/js/site-config.js"></script>
+
 
