@@ -13,10 +13,11 @@
     <h4 class="modal-title" id="myModalLabel">角色修改</h4>
 </div>
 <div class="modal-body">
-    <form id="editRole">
+    <form id="${website}/role/edit">
+
         <div class="form-group">
             <label for="editRoleName">角色名称</label>
-            <input type="text" class="form-control" id="editRoleName" placeholder="请输入角色名称">
+            <input type="text" class="form-control" id="editRoleName" name="role" placeholder="请输入角色名称">
         </div>
         <div class="form-group">
             <label>角色权限</label>

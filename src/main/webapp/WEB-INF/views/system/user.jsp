@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html>
 
@@ -47,50 +48,20 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>陶永攀</td>
-                                        <td>超级管理员</td>
-                                        <td>17684373801</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="userId">62</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>石昊</td>
-                                        <td>管理员</td>
-                                        <td>15764322090</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="userId">63</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>李成族</td>
-                                        <td>经理</td>
-                                        <td>15764321968</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="userId">64</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>李帅鑫</td>
-                                        <td>员工</td>
-                                        <td>15764321234</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="userId">65</td>
-                                    </tr>
+                                    <c:forEach items="${userList}" var="user" varStatus="status">
+                                        <tr>
+                                            <td>${status.index+1}</td>
+                                            <td>${user.username}</td>
+                                            <td>${user.roleId}</td>
+                                            <td>${user.phone}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success edit">修改</button>
+                                                <button type="button" class="btn btn-danger del">删除</button>
+                                            </td>
+                                            <td class="hidden" id="userId">62</td>
+                                        </tr>
+                                    </c:forEach>
+
                                     </tbody>
                                     <tfoot>
                                     <tr>

@@ -1,15 +1,15 @@
 package com.pandawork.eat.web.controller.system;
 
 import com.pandawork.core.common.exception.SSException;
+import com.pandawork.core.common.util.Assert;
 import com.pandawork.eat.common.entity.system.Role;
 import com.pandawork.eat.service.system.RoleService;
 import com.pandawork.eat.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,8 +45,51 @@ public class RoleController extends AbstractController {
 
         model.addAttribute("role",role);
         return "system/edit/editRole";
-
     }
 
+    /**
+     * 编辑角色信息
+     * @param id
+     * @param role
+     * @param power
+     * @return
+     * @throws SSException
+     */
+    @RequestMapping(value = "/edit",method = RequestMethod.POST)
+    public String edit(@RequestParam("id") int id,@RequestParam("role") String role, @RequestParam("power") int power)throws SSException{
 
+        return "redirect:/role/list";
+    }
+
+    /**
+     * 新增角色
+     * @param role
+     * @param power
+     * @return
+     */
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public String addRole(@RequestParam("role") String role,@RequestParam("power") int power) throws SSException {
+        Role role1 = new Role();
+        role1.setRole(role);
+        role1.setPowerId(power);
+        roleService.addRole(role1);
+        return "redirect:/role/list";
+    }
+
+    /**
+     * 删除角色,成功返回1，失败返回0
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/del",method = RequestMethod.GET)
+    public JSONObject delRole(@PathVariable("id") int id) throws SSException {
+        if (Assert.isNotNull(id)){
+            userService.delUser(id);
+            return sendJsonObject(1);
+        }else {
+            return sendJsonObject(0);
+        }
+
+    }
 }
