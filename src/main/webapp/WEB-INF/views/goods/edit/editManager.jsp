@@ -17,11 +17,11 @@
         <div class="row">
             <div class="form-group col-lg-6">
                 <label for="editGoodsName">商品名称</label>
-                <input type="text" class="form-control" id="editGoodsName" placeholder="请输入商品名称" >
+                <input type="text" class="form-control" id="editGoodsName" value="${goods.goodsName}">
             </div>
             <div class="form-group col-lg-6">
                 <label for="editGoodsSpec">商品规格</label>
-                <input type="text" class="form-control" id="editGoodsSpec" placeholder="请输入商品规格" >
+                <input type="text" class="form-control" id="editGoodsSpec" value="${goods.specification}" >
             </div>
         </div>
         <div class="row">
@@ -48,13 +48,41 @@
     <button type="button" class="btn btn-success" id="editSubmit">提交</button>
     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 </div>
-<script type="text/javascript" src="${staticWebsite}lib/js/distpicker.js"></script>
+<script type="text/javascript" src="${staticWebsite}/lib/js/distpicker.js"></script>
 <script>
+    $(document).ready(function () {
+        $("#editGoodsType").value=${goods.goodsType};
+    });
+
     $("#editSubmit").click(function(){
         var editGoodsName=$("#editGoodsName").val();
         var editGoodsSpec=$("#editGoodsSpec").val();
         var editArea=$("#editProvince").select().val()+$("#editCity").select().val();
         var editGoodsType=$("#editGoodsType").select().val();
-        alert(editGoodsName+"+"+editGoodsSpec+"+"+editArea+"+"+editGoodsType);
+        $.ajax({
+            type:"post",
+            url:_ajax.url.goods.manager.update,
+            dataType:"json",
+            data:{
+                id:${goods.id},
+                goodsName:editGoodsName,
+                goodsTypeId:editGoodsType,
+                goodsAddress:editArea,
+                specification:editGoodsSpec
+            },
+            success: function(data) {
+                if (data.code) {
+                    // 提示信息
+                    alert('修改成功');
+                    location.reload(true);
+                }
+                else{
+                    alert('修改失败');
+                }
+            },
+            error: function () {
+                console.log("获取JSON数据异常");
+            }
+        })
     });
 </script>

@@ -49,7 +49,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="/views/goods/goodsType.html">商品类别列表</a>
                                 </li>
-                                <li><a href="/views/goods/goodsManager.html">商品基本信息</a>
+                                <li><a href="${website}/goods/list">商品基本信息</a>
                                 </li>
                                 <li><a href="/views/goods/goodsPriceParameter.html">商品价格参数</a>
                                 </li>

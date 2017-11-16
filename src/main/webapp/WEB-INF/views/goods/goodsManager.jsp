@@ -50,7 +50,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td>海鲜类</td>
-                                        <td>小龙虾</td>
+                                        <td id="goods">小龙虾</td>
                                         <td>山东青岛</td>
                                         <td>15只装/箱</td>
                                         <td>
@@ -62,7 +62,7 @@
                                     <tr>
                                         <td>2</td>
                                         <td>水果类</td>
-                                        <td>火龙果</td>
+                                        <td id="goods">火龙果</td>
                                         <td>湖南长沙</td>
                                         <td>8只装/箱</td>
                                         <td>
@@ -74,7 +74,7 @@
                                     <tr>
                                         <td>3</td>
                                         <td>蔬菜类</td>
-                                        <td>豆角</td>
+                                        <td id="goods">豆角</td>
                                         <td>河南郑州</td>
                                         <td>5斤装/箱</td>
                                         <td>
@@ -86,7 +86,7 @@
                                     <tr>
                                         <td>4</td>
                                         <td>补品类</td>
-                                        <td>人参</td>
+                                        <td id="goods">人参</td>
                                         <td>吉林长春</td>
                                         <td>2只装/箱</td>
                                         <td>

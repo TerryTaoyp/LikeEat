@@ -49,13 +49,36 @@
     <button type="button" class="btn btn-success" id="addSubmit">提交</button>
     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 </div>
-<script type="text/javascript" src="${staticWebsite}lib/js/distpicker.js"></script>
+<script type="text/javascript" src="${staticWebsite}/lib/js/distpicker.js"></script>
 <script>
     $("#addSubmit").click(function () {
         var goodsName = $("#goodsName").val();
         var goodsSpec = $("#goodsSpec").val();
         var area = $("#province").select().val() + $("#city").select().val();
         var goodsType = $("#goodsType").select().val();
-        alert(goodsName + "+" + goodsSpec + "+" + area + "+" + goodsType);
+        $.ajax({
+            type: "post",
+            url: _ajax.url.goods.manager.insert,
+            dataType: "json",
+            data:{
+                goodsName:goodsName,
+                goodsTypeId:goodsType,
+                goodsAddress:area,
+                specification:goodsSpec
+            },
+            success: function (data) {
+                if (data.code) {
+                    // 提示信息
+                    alert('添加成功');
+                    location.reload(true);
+                }
+                else {
+                    alert('添加失败');
+                }
+            },
+            error: function () {
+                console.log("获取JSON数据异常");
+            }
+        })
     });
 </script>

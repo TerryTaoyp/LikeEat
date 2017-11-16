@@ -38,6 +38,16 @@
                     del: site.website+'user/del',//提交删除用户
                     updatePassword: site.website+'/editPassword'//提交修改密码
                 }
+            },
+            goods: {
+                //商品基本信息管理
+                manager:{
+                    add:site.website+'goods/to/add',//跳转新增商品页面
+                    insert:site.website+'goods/add',//提交新增商品
+                    edit:site.website+'goods/to/edit/',//跳转编辑商品页面
+                    update:site.website+'goods/edit',//提交编辑商品
+                    del:site.website+'goods/del'//提交删除商品
+                }
             }
         },
     }
