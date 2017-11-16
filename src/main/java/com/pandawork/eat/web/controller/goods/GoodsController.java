@@ -9,10 +9,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -53,23 +50,26 @@ public class GoodsController extends AbstractController {
      * @return
      * @throws SSException
      */
+    @ResponseBody
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String addGoods(@RequestParam("goodsName") String goodsName,@RequestParam("goodsTypeId") int goodsTypeId,@RequestParam("goodsAddress") String goodsAddress,@RequestParam("specification") String specification)throws SSException{
+    public JSONObject addGoods(@RequestParam("goodsName") String goodsName,@RequestParam("goodsTypeId") int goodsTypeId,@RequestParam("goodsAddress") String goodsAddress,@RequestParam("specification") String specification)throws SSException{
         Goods goods = new Goods();
         goods.setGoodsName(goodsName);
         goods.setGoodsType(goodsTypeId);
         goods.setGoodsAddress(goodsAddress);
         goods.setSpecification(specification);
         goodsService.addGoods(goods);
-        return "redirect:goods/list";
+        return sendJsonObject(1);
     }
 
     /**
      * 跳转到编辑页面
      * @return
      */
-    @RequestMapping(value = "/to/edit",method = RequestMethod.GET)
-    public String toEdit(){
+    @RequestMapping(value = "/to/edit/{id}",method = RequestMethod.GET)
+    public String toEdit(@PathVariable("id") int id, Model model) throws SSException {
+        Goods goods = goodsService.queryGoodsById(id);
+        model.addAttribute("goods",goods);
         return "goods/edit/editManager";
     }
 
@@ -78,15 +78,16 @@ public class GoodsController extends AbstractController {
      * @return
      * @throws SSException
      */
+    @ResponseBody
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    public String edit(@RequestParam("id") int id,@RequestParam("goodsName") String goodsName,@RequestParam("goodsTypeId") int goodsTypeId,@RequestParam("goodsAddress") String goodsAddress,@RequestParam("specification") String specification)throws SSException{
+    public  JSONObject edit(@RequestParam("id") int id,@RequestParam("goodsName") String goodsName,@RequestParam("goodsTypeId") int goodsTypeId,@RequestParam("goodsAddress") String goodsAddress,@RequestParam("specification") String specification)throws SSException{
         Goods goods = goodsService.queryGoodsById(id);
         goods.setGoodsName(goodsName);
         goods.setGoodsType(goodsTypeId);
         goods.setGoodsAddress(goodsAddress);
         goods.setSpecification(specification);
         goodsService.updateGoods(goods);
-        return "redirect:/goods/list";
+        return sendJsonObject(1);
     }
 
     /**
