@@ -2,6 +2,7 @@ package com.pandawork.eat.web.controller;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.framework.web.spring.controller.Base;
+import com.pandawork.eat.service.goods.GoodsService;
 import com.pandawork.eat.service.system.RoleService;
 import com.pandawork.eat.service.system.UserService;
 import net.sf.json.JSONArray;
@@ -140,6 +141,12 @@ public class AbstractController extends Base {
      */
     @Autowired
     protected static RoleService roleService;
+
+    /**
+     * 商品
+     */
+    @Autowired
+    protected static GoodsService goodsService;
 
 
 }
