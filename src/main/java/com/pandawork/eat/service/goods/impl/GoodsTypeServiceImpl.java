@@ -73,4 +73,17 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
             throw SSException.get(EatException.ListAllGoodsType);
         }
     }
+
+    @Override
+    public GoodsType queryById(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return null;
+            }
+            return goodsTypeMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.QueryGoodsTypeByIdFailed);
+        }
+    }
 }

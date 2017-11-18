@@ -3,7 +3,9 @@ package com.pandawork.eat.web.controller.goods;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.util.Assert;
 import com.pandawork.eat.common.entity.goods.Goods;
+import com.pandawork.eat.common.entity.goods.GoodsType;
 import com.pandawork.eat.service.goods.GoodsService;
+import com.pandawork.eat.service.goods.GoodsTypeService;
 import com.pandawork.eat.web.controller.AbstractController;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ import java.util.List;
 public class GoodsController extends AbstractController {
     @Autowired
     GoodsService goodsService;
+    @Autowired
+    GoodsTypeService typeService;
 
     /**
      * 获取商品列表
@@ -31,6 +35,8 @@ public class GoodsController extends AbstractController {
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String list(Model model)throws SSException{
         List<Goods> goodsList = goodsService.listAll();
+        List<GoodsType> goodsTypeList = typeService.listAll();
+        model.addAttribute("goodsTypeList",goodsTypeList);
         model.addAttribute("goodsList",goodsList);
         return "goods/goodsManager";
     }
@@ -104,6 +110,82 @@ public class GoodsController extends AbstractController {
             goodsService.delGoods(id);
             return sendJsonObject(1);
         }
+    }
+
+    /**
+     * 类型列表
+     * @param model
+     * @return
+     * @throws SSException
+     */
+    @RequestMapping(value = "/type/list",method = RequestMethod.GET)
+    public String typeList(Model model)throws SSException{
+        List<GoodsType> goodsTypeList = typeService.listAll();
+        model.addAttribute("goodsTypeList",goodsTypeList);
+        return "goods/goodsType";
+    }
+
+    /**
+     * 商品类型的新增
+     * @param model
+     * @param name
+     * @param remark
+     * @return
+     * @throws SSException
+     */
+    @RequestMapping(value = "/type/add",method = RequestMethod.POST)
+    public String addType(Model model,@RequestParam("name") String name,@RequestParam("remark") String remark)throws SSException{
+        GoodsType goodsType = new GoodsType();
+        goodsType.setName(name);
+        goodsType.setRemark(remark);
+        typeService.addGoodsType(goodsType);
+        return "redirect:/goods/type/list";
+    }
+
+    /**
+     * 跳转到编辑商品类型页面
+     * @return
+     * @throws SSException
+     */
+    @RequestMapping(value = "/type/to/edit",method = RequestMethod.GET)
+    public String toEditType()throws SSException{
+        return "goods/edit/editType";
+    }
+
+    /**
+     * 编辑商品类型
+     * @param id
+     * @param name
+     * @param remark
+     * @return
+     * @throws SSException
+     */
+    @ResponseBody
+    @RequestMapping(value = "/type/edit",method = RequestMethod.POST)
+    public JSONObject editType(@RequestParam("id") int id,@RequestParam("name") String name,@RequestParam("remark") String remark)throws SSException{
+        GoodsType goodsType = typeService.queryById(id);
+        goodsType.setName(name);
+        goodsType.setRemark(remark);
+        typeService.editGoodsType(goodsType);
+        return sendJsonObject(1);
+    }
+
+    /**
+     * 删除商品类型
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    @ResponseBody
+    @RequestMapping(value = "/type/del",method = RequestMethod.POST)
+    public JSONObject delType(int id)throws SSException{
+        if (Assert.isNotNull(id)){
+            typeService.delGoodsType(id);
+            return  sendJsonObject(1);
+        }else {
+            return sendJsonObject(0);
+        }
+
     }
 
 

@@ -39,6 +39,7 @@ public enum EatException implements IBizExceptionMes{
     EditPriceParaFailed("编辑价格参数失败",1116),
     DelPriceParaFailed("删除价格参数失败",1117),
     ListAllPriceParaFailed("列出所有的价格参数失败",1118),
+    QueryGoodsTypeByIdFailed("根据ID查找商品类型失败",1119),
 
 
     //供货商管理

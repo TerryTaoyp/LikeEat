@@ -39,4 +39,12 @@ public interface GoodsTypeMapper {
      */
     public List<GoodsType> listAll()throws SSException;
 
+    /**
+     * 根据ID查找商品类型
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public GoodsType queryById(@Param("id") int id)throws SSException;
+
 }
