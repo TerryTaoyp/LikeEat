@@ -133,13 +133,14 @@ public class GoodsController extends AbstractController {
      * @return
      * @throws SSException
      */
+    @ResponseBody
     @RequestMapping(value = "/type/add",method = RequestMethod.POST)
-    public String addType(Model model,@RequestParam("name") String name,@RequestParam("remark") String remark)throws SSException{
+    public JSONObject addType(Model model,@RequestParam("name") String name,@RequestParam("remark") String remark)throws SSException{
         GoodsType goodsType = new GoodsType();
         goodsType.setName(name);
         goodsType.setRemark(remark);
         typeService.addGoodsType(goodsType);
-        return "redirect:/goods/type/list";
+        return sendJsonObject(1);
     }
 
     /**
@@ -147,8 +148,10 @@ public class GoodsController extends AbstractController {
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/type/to/edit",method = RequestMethod.GET)
-    public String toEditType()throws SSException{
+    @RequestMapping(value = "/type/to/edit/{id}",method = RequestMethod.GET)
+    public String toEditType(@PathVariable("id")int id,Model model)throws SSException{
+        GoodsType goodsType = typeService.queryById(id);
+        model.addAttribute("goodsType",goodsType);
         return "goods/edit/editType";
     }
 

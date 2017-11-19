@@ -16,11 +16,11 @@
     <form>
         <div class="form-group">
             <label for="editTypeName">类型名称</label>
-            <input type="text" class="form-control" id="editTypeName" placeholder="请输入商品类别名称">
+            <input type="text" class="form-control" id="editTypeName" value="${goodsType.name}">
         </div>
         <div class="form-group">
             <label for="editRemark">备注</label>
-            <input type="text" class="form-control" id="editRemark" placeholder="请输入商品类别备注">
+            <input type="text" class="form-control" id="editRemark" value="${goodsType.remark}">
         </div>
     </form>
 </div>
@@ -32,6 +32,28 @@
     $("#editSubmit").click(function(){
         var editTypeName=$("#editTypeName").val();
         var editRemark=$("#editRemark").val();
-        alert(editTypeName+"+"+editRemark);
+        $.ajax({
+            type:"post",
+            url:_ajax.url.goods.type.update,
+            dataType:"json",
+            data:{
+                id:${goodsType.id},
+                name:editTypeName,
+                remark:editRemark
+            },
+            success: function (data) {
+                if (data.code) {
+                    // 提示信息
+                    alert('编辑成功');
+                    location.reload(true);
+                }
+                else {
+                    alert('编辑失败，请联系管理员');
+                }
+            },
+            error: function () {
+                console.log("获取JSON数据异常");
+            }
+        })
     })
 </script>

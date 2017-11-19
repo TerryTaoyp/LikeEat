@@ -47,7 +47,7 @@
                     <div id="dropdown-table" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="nav navbar-nav">
-                                <li><a href="/views/goods/goodsType.html">商品类别列表</a>
+                                <li><a href="${website}/goods/type/list">商品类别列表</a>
                                 </li>
                                 <li><a href="${website}/goods/list">商品基本信息</a>
                                 </li>

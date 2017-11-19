@@ -47,6 +47,13 @@
                     edit:site.website+'goods/to/edit/',//跳转编辑商品页面
                     update:site.website+'goods/edit',//提交编辑商品
                     del:site.website+'goods/del'//提交删除商品
+                },
+                //商品类别管理
+                type:{
+                    insert:site.website+'goods/type/add',//提交新增商品类型
+                    edit:site.website+'goods/type/to/edit/',//跳转编辑商品类型页面
+                    update:site.website+'goods/type/edit',//提交编辑商品类型
+                    del:site.website+'goods/type/del'//提交删除商品类型
                 }
             }
         },
