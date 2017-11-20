@@ -52,7 +52,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td>水果类</td>
-                                        <td>苹果</td>
+                                        <td id="goods">苹果</td>
                                         <td>2元/斤</td>
                                         <td>3元/斤</td>
                                         <td>好吃多汁，物美价廉</td>
@@ -66,7 +66,7 @@
                                     <tr>
                                         <td>2</td>
                                         <td>水果类</td>
-                                        <td>苹果</td>
+                                        <td id="goods">苹果</td>
                                         <td>2元/斤</td>
                                         <td>3元/斤</td>
                                         <td>好吃多汁，物美价廉</td>
@@ -80,7 +80,7 @@
                                     <tr>
                                         <td>3</td>
                                         <td>水果类</td>
-                                        <td>苹果</td>
+                                        <td id="goods">苹果</td>
                                         <td>2元/斤</td>
                                         <td>3元/斤</td>
                                         <td>好吃多汁，物美价廉</td>
@@ -94,7 +94,7 @@
                                     <tr>
                                         <td>4</td>
                                         <td>水果类</td>
-                                        <td>苹果</td>
+                                        <td id="goods">苹果</td>
                                         <td>2元/斤</td>
                                         <td>3元/斤</td>
                                         <td>好吃多汁，物美价廉</td>

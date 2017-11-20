@@ -219,7 +219,7 @@ public class GoodsController extends AbstractController {
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/goods/dto/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/price/dto/list",method = RequestMethod.GET)
     public String goodsDtoList(Model model)throws SSException{
         List<GoodsDto> goodsDtoList = goodsService.listAllGoodsDto();
         model.addAttribute("goodsDtoList",goodsDtoList);
@@ -251,9 +251,8 @@ public class GoodsController extends AbstractController {
      * 跳转到编辑页面
      * @return
      */
-    @RequestMapping(value = "/price/to/edit",method = RequestMethod.POST)
-    public String priceToEdit(@RequestParam("id") int id,Model model) throws SSException {
-
+    @RequestMapping(value = "/price/to/edit/{id}",method = RequestMethod.GET)
+    public String priceToEdit(@PathVariable("id") int id,Model model) throws SSException {
         GoodsDto goodsDto = goodsService.queryGoodsDtoById(id);
         model.addAttribute("goodsDto",goodsDto);
         return "goods/edit/editPrice";

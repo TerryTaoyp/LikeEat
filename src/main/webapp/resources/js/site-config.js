@@ -54,6 +54,13 @@
                     edit:site.website+'goods/type/to/edit/',//跳转编辑商品类型页面
                     update:site.website+'goods/type/edit',//提交编辑商品类型
                     del:site.website+'goods/type/del'//提交删除商品类型
+                },
+                //价格信息管理
+                price:{
+                    insert:site.website+'goods/price/add',//提交新增商品价格
+                    edit:site.website+'goods/price/to/edit/',//跳转编辑商品价格
+                    update:site.website+'goods/price/edit',//提交编辑商品价格
+                    del:site.website+'goods/price/del'//提交删除商品价格
                 }
             }
         },

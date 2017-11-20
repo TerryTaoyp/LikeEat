@@ -53,7 +53,7 @@
                                 </li>
                                 <li><a href="/views/goods/goodsPriceParameter.html">商品价格参数</a>
                                 </li>
-                                <li><a href="/views/goods/goodsPrice.html">商品价格信息</a>
+                                <li><a href="${website}/goods/price/dto/list">商品价格信息</a>
                                 </li>
                             </ul>
                         </div>
