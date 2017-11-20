@@ -1,6 +1,7 @@
 package com.pandawork.eat.mapper.goods;
 
 import com.pandawork.core.common.exception.SSException;
+import com.pandawork.eat.common.dto.goods.GoodsDto;
 import com.pandawork.eat.common.entity.goods.Goods;
 import org.apache.ibatis.annotations.Param;
 
@@ -62,4 +63,19 @@ public interface GoodsMapper {
      * @throws SSException
      */
     public Goods queryGoodsByName(@Param("goodsName") String goodsName)throws SSException;
+
+    /**
+     * 列出所有的
+     * @return
+     * @throws SSException
+     */
+    public List<GoodsDto> listAllGoodsDto()throws SSException;
+
+    /**
+     * 根据ID查询商品的基本信息
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public GoodsDto queryGoodsDtoById(@Param("id") int id)throws SSException;
 }

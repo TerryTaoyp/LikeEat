@@ -2,7 +2,10 @@ package com.pandawork.eat.web.controller;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.framework.web.spring.controller.Base;
+import com.pandawork.eat.service.goods.GoodsPriceService;
 import com.pandawork.eat.service.goods.GoodsService;
+import com.pandawork.eat.service.goods.GoodsTypeService;
+import com.pandawork.eat.service.goods.PriceParaService;
 import com.pandawork.eat.service.system.RoleService;
 import com.pandawork.eat.service.system.UserService;
 import net.sf.json.JSONArray;
@@ -147,6 +150,24 @@ public class AbstractController extends Base {
      */
     @Autowired
     protected static GoodsService goodsService;
+
+    /**
+     * 商品类型
+     */
+    @Autowired
+    protected static GoodsTypeService goodsTypeService;
+
+    /**
+     * 商品价格
+     */
+    @Autowired
+    protected static GoodsPriceService goodsPriceService;
+
+    /**
+     * 商品价格参数
+     */
+    @Autowired
+    protected static PriceParaService priceParaService;
 
 
 }

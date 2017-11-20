@@ -23,7 +23,7 @@ public class GoodsPriceServiceTest extends AbstractTestCase {
         GoodsPrice goodsPrice = new GoodsPrice();
         goodsPrice.setGoodsId(1);
         goodsPrice.setMarketPrice(3.2);
-        goodsPrice.setPrimeCost(3.4);
+        goodsPrice.setPriceCost(3.4);
         goodsPrice.setRemark("haahha");
         goodsPriceService.addGoodsPrice(goodsPrice);
     }
@@ -38,7 +38,7 @@ public class GoodsPriceServiceTest extends AbstractTestCase {
         goodsPrice.setId(1);
         goodsPrice.setGoodsId(2);
         goodsPrice.setMarketPrice(3.2);
-        goodsPrice.setPrimeCost(3.4);
+        goodsPrice.setPriceCost(3.4);
         goodsPrice.setRemark("haahha");
         goodsPriceService.updateGoodsPrice(goodsPrice);
     }

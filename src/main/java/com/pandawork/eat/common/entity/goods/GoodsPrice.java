@@ -47,12 +47,12 @@ public class GoodsPrice {
         this.goodsId = goodsId;
     }
 
-    public Double getPrimeCost() {
+    public Double getPriceCost() {
         return priceCost;
     }
 
-    public void setPrimeCost(Double primeCost) {
-        this.priceCost = primeCost;
+    public void setPriceCost(Double priceCost) {
+        this.priceCost = priceCost;
     }
 
     public Double getMarketPrice() {
@@ -76,7 +76,7 @@ public class GoodsPrice {
         return "GoodsPrice{" +
                 "id=" + id +
                 ", goodsId=" + goodsId +
-                ", primeCost=" + priceCost +
+                ", priceCost=" + priceCost +
                 ", marketPrice=" + marketPrice +
                 ", remark='" + remark + '\'' +
                 '}';

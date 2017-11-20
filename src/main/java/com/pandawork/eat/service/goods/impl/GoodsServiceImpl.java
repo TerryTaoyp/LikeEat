@@ -3,6 +3,7 @@ package com.pandawork.eat.service.goods.impl;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
+import com.pandawork.eat.common.dto.goods.GoodsDto;
 import com.pandawork.eat.common.entity.goods.Goods;
 import com.pandawork.eat.common.exception.EatException;
 import com.pandawork.eat.mapper.goods.GoodsMapper;
@@ -110,6 +111,29 @@ public class GoodsServiceImpl implements GoodsService {
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(EatException.QueryGoodsByNameFailed);
+        }
+    }
+
+    @Override
+    public List<GoodsDto> listAllGoodsDto() throws SSException {
+        try {
+            return goodsMapper.listAllGoodsDto();
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.ListAllGoodsFailed);
+        }
+    }
+
+    @Override
+    public GoodsDto queryGoodsDtoById(int id) throws SSException {
+        try {
+            if (Assert.isNotNull(id)){
+                return null;
+            }
+            return goodsMapper.queryGoodsDtoById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.QueryGoodsByIdFailed);
         }
     }
 }

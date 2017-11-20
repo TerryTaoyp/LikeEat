@@ -45,4 +45,31 @@
     <select id="queryGoodsByName" resultMap="pw.Goods">
         SELECT * FROM t_goods WHERE goods_name = #{goodsName}
     </select>
+
+
+    <select id="listAllGoodsDto" resultMap="GoodsDto">
+        SELECT tg.id AS id,
+        tg.goods_name AS goodsName,
+        (SELECT tgt.name FROM t_goods_type tgt WHERE tgt.id = tg.goods_type)AS goodsType,
+        (SELECT tgt.remark FROM t_goods_type tgt WHERE tgt.id = tg.goods_type)AS typeRemark,
+        tg.goods_address AS goodsAddress,
+        tg.specification AS specification,
+        (SELECT tgp.price_cost FROM t_goods_price tgp WHERE tgp.goods_id = tg.id)AS priceCost,
+        (SELECT tgp.market_price FROM t_goods_price tgp WHERE tgp.goods_id = tg.id)AS marketPrice,
+        (SELECT tgp.remark FROM t_goods_price tgp WHERE tgp.goods_id = tg.id)AS goodsRemark
+        FROM t_goods tg
+    </select>
+
+    <select id="queryGoodsDtoById" resultMap="GoodsDto">
+        SELECT tg.id AS id,
+        tg.goods_name AS goodsName,
+        (SELECT tgt.name FROM t_goods_type tgt WHERE tgt.id = tg.goods_type)AS goodsType,
+        (SELECT tgt.remark FROM t_goods_type tgt WHERE tgt.id = tg.goods_type)AS typeRemark,
+        tg.goods_address AS goodsAddress,
+        tg.specification AS specification,
+        (SELECT tgp.price_cost FROM t_goods_price tgp WHERE tgp.goods_id = tg.id)AS priceCost,
+        (SELECT tgp.market_price FROM t_goods_price tgp WHERE tgp.goods_id = tg.id)AS marketPrice,
+        (SELECT tgp.remark FROM t_goods_price tgp WHERE tgp.goods_id = tg.id)AS goodsRemark
+        FROM t_goods tg WHERE tg.id = #{id}
+    </select>
 </mapper>

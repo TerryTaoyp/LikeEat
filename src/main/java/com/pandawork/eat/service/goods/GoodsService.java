@@ -1,6 +1,7 @@
 package com.pandawork.eat.service.goods;
 
 import com.pandawork.core.common.exception.SSException;
+import com.pandawork.eat.common.dto.goods.GoodsDto;
 import com.pandawork.eat.common.entity.goods.Goods;
 
 import java.util.List;
@@ -61,4 +62,19 @@ public interface GoodsService {
      * @throws SSException
      */
     public Goods queryGoodsByName(String goodsName)throws SSException;
+
+    /**
+     * 列出所有的
+     * @return
+     * @throws SSException
+     */
+    public List<GoodsDto> listAllGoodsDto()throws SSException;
+
+    /**
+     * 根据ID查询商品的基本信息
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public GoodsDto queryGoodsDtoById(int id)throws SSException;
 }

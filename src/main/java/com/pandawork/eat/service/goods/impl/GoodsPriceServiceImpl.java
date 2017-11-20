@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/10/25.
  */
@@ -59,6 +61,29 @@ public class GoodsPriceServiceImpl implements GoodsPriceService {
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(EatException.DelGoodsPriceFailed);
+        }
+    }
+
+    @Override
+    public List<GoodsPrice> listAll() throws SSException {
+        try {
+            return goodsPriceMapper.listAll();
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.ListAllGoodsPriceFailed);
+        }
+    }
+
+    @Override
+    public GoodsPrice queryById(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return null;
+            }
+            return goodsPriceMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.QueryGoodsPriceByIdFailed);
         }
     }
 }

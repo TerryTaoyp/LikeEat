@@ -2,12 +2,17 @@ package com.pandawork.eat.web.controller.goods;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.util.Assert;
+import com.pandawork.eat.common.dto.goods.GoodsDto;
 import com.pandawork.eat.common.entity.goods.Goods;
+import com.pandawork.eat.common.entity.goods.GoodsPrice;
 import com.pandawork.eat.common.entity.goods.GoodsType;
+import com.pandawork.eat.service.goods.GoodsPriceService;
 import com.pandawork.eat.service.goods.GoodsService;
 import com.pandawork.eat.service.goods.GoodsTypeService;
+import com.pandawork.eat.service.goods.PriceParaService;
 import com.pandawork.eat.web.controller.AbstractController;
 import net.sf.json.JSONObject;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +30,10 @@ public class GoodsController extends AbstractController {
     GoodsService goodsService;
     @Autowired
     GoodsTypeService typeService;
+    @Autowired
+    GoodsPriceService goodsPriceService;
+    @Autowired
+    PriceParaService priceParaService;
 
     /**
      * 获取商品列表
@@ -191,5 +200,100 @@ public class GoodsController extends AbstractController {
 
     }
 
+    /**
+     * 商品价格信息列表
+     * @param model
+     * @return
+     * @throws SSException
+     */
+    @RequestMapping(value = "/price/list",method = RequestMethod.GET)
+    public String priceList(Model model)throws SSException{
+        List<GoodsPrice> goodsPriceList = goodsPriceService.listAll();
+        model.addAttribute("goodsPriceList",goodsPriceList);
+        return "goods/goodsPrice";
+    }
+
+    /**
+     * 列出所有的商品信息
+     * @param model
+     * @return
+     * @throws SSException
+     */
+    @RequestMapping(value = "/goods/dto/list",method = RequestMethod.GET)
+    public String goodsDtoList(Model model)throws SSException{
+        List<GoodsDto> goodsDtoList = goodsService.listAllGoodsDto();
+        model.addAttribute("goodsDtoList",goodsDtoList);
+        return "goods/goodsPrice";
+    }
+
+    /**
+     * 新增商品价格信息
+     * @param goodsId
+     * @param priceCost
+     * @param marketPrice
+     * @param remark
+     * @return
+     * @throws SSException
+     */
+    @ResponseBody
+    @RequestMapping(value = "/price/add",method = RequestMethod.POST)
+    public JSONObject priceAdd(@RequestParam("goodsId") int goodsId,@RequestParam("priceCost") Double priceCost,@RequestParam("marketPrice") Double marketPrice,@RequestParam("remark") String remark)throws SSException{
+        GoodsPrice goodsPrice = new GoodsPrice();
+        goodsPrice.setGoodsId(goodsId);
+        goodsPrice.setPriceCost(priceCost);
+        goodsPrice.setMarketPrice(marketPrice);
+        goodsPrice.setRemark(remark);
+        goodsPriceService.addGoodsPrice(goodsPrice);
+        return sendJsonObject(1);
+    }
+
+    /**
+     * 跳转到编辑页面
+     * @return
+     */
+    @RequestMapping(value = "/price/to/edit",method = RequestMethod.POST)
+    public String priceToEdit(@RequestParam("id") int id,Model model) throws SSException {
+
+        GoodsDto goodsDto = goodsService.queryGoodsDtoById(id);
+        model.addAttribute("goodsDto",goodsDto);
+        return "goods/edit/editPrice";
+    }
+
+    /**
+     * 编辑商品价格信息
+     * @param id
+     * @param priceCost
+     * @param marketPrice
+     * @param remark
+     * @return
+     * @throws SSException
+     */
+    @ResponseBody
+    @RequestMapping(value = "/price/edit",method = RequestMethod.POST)
+    public JSONObject priceEdit(@RequestParam("id") int id,@RequestParam("priceCost") Double priceCost,@RequestParam("marketPrice") Double marketPrice,@RequestParam("remark") String remark)throws SSException{
+        GoodsPrice goodsPrice = goodsPriceService.queryById(id);
+        goodsPrice.setPriceCost(priceCost);
+        goodsPrice.setMarketPrice(marketPrice);
+        goodsPrice.setRemark(remark);
+        goodsPriceService.updateGoodsPrice(goodsPrice);
+        return sendJsonObject(1);
+    }
+
+    /**
+     * 商品价格信息删除
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    @ResponseBody
+    @RequestMapping(value = "/price/del",method = RequestMethod.POST)
+    public JSONObject priceDel(@Param("id") int id)throws SSException{
+        if (Assert.isNull(id)){
+            return sendJsonObject(0);
+        }else {
+            goodsPriceService.delGoodsPrice(id);
+            return sendJsonObject(1);
+        }
+    }
 
 }

@@ -30,4 +30,12 @@
     <delete id="delGoodsPrice">
         DELETE FROM t_goods_price WHERE id = #{id}
     </delete>
+
+    <select id="listAll" resultMap="pw.GoodsPrice">
+        SELECT * FROM t_goods_price
+    </select>
+
+    <select id="queryById" resultMap="pw.GoodsPrice">
+        SELECT * FROM t_goods_price WHERE id = #{id}
+    </select>
 </mapper>
