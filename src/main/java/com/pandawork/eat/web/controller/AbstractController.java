@@ -6,6 +6,7 @@ import com.pandawork.eat.service.goods.GoodsPriceService;
 import com.pandawork.eat.service.goods.GoodsService;
 import com.pandawork.eat.service.goods.GoodsTypeService;
 import com.pandawork.eat.service.goods.PriceParaService;
+import com.pandawork.eat.service.sales.CustomerTypeService;
 import com.pandawork.eat.service.system.RoleService;
 import com.pandawork.eat.service.system.UserService;
 import net.sf.json.JSONArray;
@@ -168,6 +169,12 @@ public class AbstractController extends Base {
      */
     @Autowired
     protected static PriceParaService priceParaService;
+
+    /**
+     * 客户类型
+     */
+    @Autowired
+    protected static CustomerTypeService customerTypeService;
 
 
 }

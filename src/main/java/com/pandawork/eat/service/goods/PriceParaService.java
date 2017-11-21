@@ -37,4 +37,12 @@ public interface PriceParaService {
      * @throws SSException
      */
     public List<PricePara> listAll()throws SSException;
+
+    /**
+     * 根据ID查找价格参数
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public PricePara queryById(int id)throws SSException;
 }

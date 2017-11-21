@@ -73,4 +73,17 @@ public class PriceParaServiceImpl implements PriceParaService {
             throw SSException.get(EatException.ListAllPriceParaFailed);
         }
     }
+
+    @Override
+    public PricePara queryById(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return null;
+            }
+            return priceParaMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.QueryGoodsPriceParaByIdFailed);
+        }
+    }
 }

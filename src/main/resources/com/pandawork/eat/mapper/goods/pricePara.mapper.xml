@@ -27,4 +27,8 @@
         SELECT * FROM t_price_parameter
     </select>
 
+    <select id="queryById" resultMap="pw.PricePara">
+        SELECT * FROM t_price_parameter WHERE id = #{id}
+    </select>
+
 </mapper>

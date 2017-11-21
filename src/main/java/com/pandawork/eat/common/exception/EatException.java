@@ -42,6 +42,7 @@ public enum EatException implements IBizExceptionMes{
     QueryGoodsTypeByIdFailed("根据ID查找商品类型失败",1119),
     ListAllGoodsPriceFailed("列出所有的商品价格失败",1120),
     QueryGoodsPriceByIdFailed("根据ID查找商品价格信息失败",1121),
+    QueryGoodsPriceParaByIdFailed("根据ID查找价格参数失败",1122),
 
 
     //供货商管理

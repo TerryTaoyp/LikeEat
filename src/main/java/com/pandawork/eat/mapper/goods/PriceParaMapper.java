@@ -38,4 +38,12 @@ public interface PriceParaMapper {
      * @throws SSException
      */
     public List<PricePara> listAll()throws SSException;
+
+    /**
+     * 根据ID查找价格参数
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public PricePara queryById(@Param("id") int id)throws SSException;
 }
