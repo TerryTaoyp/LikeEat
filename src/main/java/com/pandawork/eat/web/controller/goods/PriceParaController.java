@@ -11,10 +11,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,6 +34,8 @@ public class PriceParaController extends AbstractController {
      */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String list(Model model)throws SSException{
+        // TODO: 2017/11/22 priceParaList需要和CustomerType关联起来，展示列表中要有该参数所属客户类别，前端JSTL来判断不方便
+        // TODO: 2017/11/22 为啥要把这俩表分开呢……有一个customerType就有一个对应的价格参数。添加客户类型时设置价格参数，之后只能修改，不能删除，要删除连客户类型一起删除
         List<PricePara> priceParaList = priceParaService.listAll();
         List<CustomerType> customerTypeList = customerTypeService.listAll();
         model.addAttribute("priceParaList",priceParaList);
@@ -56,6 +55,7 @@ public class PriceParaController extends AbstractController {
         pricePara1.setCustomerTypeId(customerTypeId);
         pricePara1.setPricePara(pricePara);
         priceParaService.addPricePara(pricePara1);
+
         return sendJsonObject(1);
     }
 
@@ -65,8 +65,9 @@ public class PriceParaController extends AbstractController {
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/to/edit",method = RequestMethod.GET)
-    public String toEdit(@RequestParam("id") int id,Model model)throws SSException{
+    @RequestMapping(value = "/to/edit/{id}",method = RequestMethod.GET)
+    public String toEdit(@PathVariable("id") int id, Model model)throws SSException{
+        // TODO: 2017/11/22 需向前端传递customerTypeId所对应的客户类别名称
         PricePara pricePara = priceParaService.queryById(id);
         model.addAttribute("pricePara",pricePara);
         return "goods/edit/editPriceParameter";
@@ -75,16 +76,14 @@ public class PriceParaController extends AbstractController {
     /**
      * 编辑信息
      * @param id
-     * @param customerTypeId
      * @param pricePara
      * @return
      * @throws SSException
      */
     @ResponseBody
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    public JSONObject edit(@RequestParam("id") int id,@RequestParam("customerTypeId") int customerTypeId,@RequestParam("pricePara") Double pricePara )throws SSException{
+    public JSONObject edit(@RequestParam("id") int id,@RequestParam("pricePara") Double pricePara )throws SSException{
         PricePara pricePara1 = priceParaService.queryById(id);
-        pricePara1.setCustomerTypeId(customerTypeId);
         pricePara1.setPricePara(pricePara);
         priceParaService.editPricePara(pricePara1);
         return sendJsonObject(1);

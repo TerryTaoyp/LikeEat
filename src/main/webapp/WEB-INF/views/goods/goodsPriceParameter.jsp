@@ -54,7 +54,7 @@
                                             <button type="button" class="btn btn-success edit">修改</button>
                                             <button type="button" class="btn btn-danger del">删除</button>
                                         </td>
-                                        <td class="hidden" id="customerTypeId">21</td>
+                                        <td class="hidden" id="priceParaId">21</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -64,7 +64,7 @@
                                             <button type="button" class="btn btn-success edit">修改</button>
                                             <button type="button" class="btn btn-danger del">删除</button>
                                         </td>
-                                        <td class="hidden" id="customerTypeId">22</td>
+                                        <td class="hidden" id="priceParaId">22</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
@@ -74,7 +74,7 @@
                                             <button type="button" class="btn btn-success edit">修改</button>
                                             <button type="button" class="btn btn-danger del">删除</button>
                                         </td>
-                                        <td class="hidden" id="customerTypeId">23</td>
+                                        <td class="hidden" id="priceParaId">23</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
@@ -84,7 +84,7 @@
                                             <button type="button" class="btn btn-success edit">修改</button>
                                             <button type="button" class="btn btn-danger del">删除</button>
                                         </td>
-                                        <td class="hidden" id="customerTypeId">24</td>
+                                        <td class="hidden" id="priceParaId">24</td>
                                     </tr>
                                     </tbody>
                                     <tfoot>

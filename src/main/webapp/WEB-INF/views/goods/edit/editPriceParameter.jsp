@@ -14,14 +14,13 @@
 </div>
 <div class="modal-body">
     <form>
-        <input type="text" class="hidden" value=63 id="editCustomerTypeId">
         <div class="form-group">
             <label for="customerType">客户类型</label>
             <p id="customerType">一级代理商</p>
         </div>
         <div class="form-group">
             <label for="priceParam">价格参数</label>
-            <input type="text" class="form-control" id="priceParam" placeholder="请输入价格参数">
+            <input type="text" class="form-control" id="priceParam" value="${pricePara.pricePara}">
         </div>
     </form>
 </div>
@@ -31,8 +30,28 @@
 </div>
 <script>
     $("#editSubmit").click(function(){
-        var customerTypeId=$("#editCustomerTypeId").val();
         var priceParam=$("#priceParam").val();
-        alert(customerTypeId+"+"+priceParam);
+        $.ajax({
+            type:"post",
+            url:_ajax.url.goods.para.update,
+            dataType:"json",
+            data:{
+                id:${pricePara.id},
+                pricePara:priceParam
+            },
+            success: function(data) {
+                if (data.code) {
+                    // 提示信息
+                    alert('修改成功');
+                    location.reload(true);
+                }
+                else{
+                    alert('修改失败');
+                }
+            },
+            error: function () {
+                console.log("获取JSON数据异常");
+            }
+        })
     })
 </script>

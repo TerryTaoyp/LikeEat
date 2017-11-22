@@ -58,9 +58,16 @@
                 //价格信息管理
                 price:{
                     insert:site.website+'goods/price/add',//提交新增商品价格
-                    edit:site.website+'goods/price/to/edit/',//跳转编辑商品价格
+                    edit:site.website+'goods/price/to/edit/',//跳转编辑商品价格页面
                     update:site.website+'goods/price/edit',//提交编辑商品价格
                     del:site.website+'goods/price/del'//提交删除商品价格
+                },
+                //价格参数管理
+                para:{
+                    insert:site.website+'price/add',//提交新增价格参数
+                    edit:site.website+'price/to/edit/',//跳转编辑价格参数页面
+                    update:site.website+'price/edit',//提交编辑价格参数
+                    del:site.website+'price/del'//提交删除价格参数
                 }
             }
         },
