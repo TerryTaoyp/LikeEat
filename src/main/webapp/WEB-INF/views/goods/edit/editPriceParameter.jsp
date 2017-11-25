@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -16,7 +17,11 @@
     <form>
         <div class="form-group">
             <label for="customerType">客户类型</label>
-            <p id="customerType">一级代理商</p>
+            <c:forEach items="${customerTypeList}" varStatus="status" var="type">
+                <c:if test="${type.id==pricePara.customerTypeId}">
+                    <p id="customerType">${type.name}</p>
+                </c:if>
+            </c:forEach>
         </div>
         <div class="form-group">
             <label for="priceParam">价格参数</label>
@@ -29,23 +34,23 @@
     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 </div>
 <script>
-    $("#editSubmit").click(function(){
-        var priceParam=$("#priceParam").val();
+    $("#editSubmit").click(function () {
+        var priceParam = $("#priceParam").val();
         $.ajax({
-            type:"post",
-            url:_ajax.url.goods.para.update,
-            dataType:"json",
-            data:{
+            type: "post",
+            url: _ajax.url.goods.para.update,
+            dataType: "json",
+            data: {
                 id:${pricePara.id},
-                pricePara:priceParam
+                pricePara: priceParam
             },
-            success: function(data) {
+            success: function (data) {
                 if (data.code) {
                     // 提示信息
                     alert('修改成功');
                     location.reload(true);
                 }
-                else{
+                else {
                     alert('修改失败');
                 }
             },

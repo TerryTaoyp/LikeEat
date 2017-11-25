@@ -11,10 +11,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -74,8 +71,8 @@ public class SupplierController extends AbstractController{
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/to/eit",method = RequestMethod.POST)
-    public String toEdit(@RequestParam("id") int id,Model model)throws SSException{
+    @RequestMapping(value = "/to/eit/{id}",method = RequestMethod.GET)
+    public String toEdit(@PathVariable("id") int id, Model model)throws SSException{
         Supplier supplier= supplierService.queryById(id);
         List<Supplier> supplierList = supplierService.listAll();
         model.addAttribute("supplier",supplier);
@@ -162,8 +159,8 @@ public class SupplierController extends AbstractController{
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/type/to/edit",method = RequestMethod.POST)
-   public String typeToEdit(@RequestParam("id") int id,Model model)throws SSException{
+    @RequestMapping(value = "/type/to/edit/{id}",method = RequestMethod.GET)
+   public String typeToEdit(@PathVariable("id") int id,Model model)throws SSException{
         SupplierType supplierType = supplierTypeService.queryById(id);
         model.addAttribute("supplierType",supplierType);
         return "purchase/edit/editSupplierType";

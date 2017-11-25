@@ -34,8 +34,6 @@ public class PriceParaController extends AbstractController {
      */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String list(Model model)throws SSException{
-        // TODO: 2017/11/22 priceParaList需要和CustomerType关联起来，展示列表中要有该参数所属客户类别，前端JSTL来判断不方便
-        // TODO: 2017/11/22 为啥要把这俩表分开呢……有一个customerType就有一个对应的价格参数。添加客户类型时设置价格参数，之后只能修改，不能删除，要删除连客户类型一起删除
         List<PricePara> priceParaList = priceParaService.listAll();
         List<CustomerType> customerTypeList = customerTypeService.listAll();
         model.addAttribute("priceParaList",priceParaList);
@@ -67,7 +65,8 @@ public class PriceParaController extends AbstractController {
      */
     @RequestMapping(value = "/to/edit/{id}",method = RequestMethod.GET)
     public String toEdit(@PathVariable("id") int id, Model model)throws SSException{
-        // TODO: 2017/11/22 需向前端传递customerTypeId所对应的客户类别名称
+        List<CustomerType> customerTypeList = customerTypeService.listAll();
+        model.addAttribute("customerTypeList",customerTypeList);
         PricePara pricePara = priceParaService.queryById(id);
         model.addAttribute("pricePara",pricePara);
         return "goods/edit/editPriceParameter";

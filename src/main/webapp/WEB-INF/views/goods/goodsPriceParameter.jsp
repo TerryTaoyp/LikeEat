@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 
@@ -46,46 +47,22 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>一级代理价格参数</td>
-                                        <td>7折</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="priceParaId">21</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>二级代理价格参数</td>
-                                        <td>8折</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="priceParaId">22</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>一级代理价格参数</td>
-                                        <td>9折</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="priceParaId">23</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>销售价格参数参数</td>
-                                        <td>9.5折</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="priceParaId">24</td>
-                                    </tr>
+                                    <c:forEach items="${priceParaList}" var="para" varStatus="statusP">
+                                        <c:forEach items="${customerTypeList}" var="type" varStatus="statusT">
+                                            <c:if test="${para.customerTypeId == type.id}">
+                                                <tr>
+                                                    <td>${statusP.index+1}</td>
+                                                    <td>${type.name}</td>
+                                                    <td>${para.pricePara}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success edit">修改</button>
+                                                        <button type="button" class="btn btn-danger del">删除</button>
+                                                    </td>
+                                                    <td class="hidden" id="priceParaId">${para.id}</td>
+                                                </tr>
+                                            </c:if>
+                                        </c:forEach>
+                                    </c:forEach>
                                     </tbody>
                                     <tfoot>
                                     <tr>
