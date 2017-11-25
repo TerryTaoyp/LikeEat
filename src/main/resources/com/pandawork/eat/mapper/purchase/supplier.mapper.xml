@@ -37,4 +37,8 @@
     <select id="listAll" resultMap="pw.Supplier">
         SELECT * FROM t_supplier
     </select>
+
+    <select id="queryById" resultMap="pw.Supplier">
+        SELECT * FROM t_supplier WHERE id = #{id}
+    </select>
 </mapper>

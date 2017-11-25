@@ -39,4 +39,12 @@ public interface SupplierTypeMapper {
      * @throws SSException
      */
     public List<SupplierType> listAll()throws SSException;
+
+    /**
+     * 根据ID查找供货商类型
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public SupplierType queryById(@Param("id") int id)throws SSException;
 }

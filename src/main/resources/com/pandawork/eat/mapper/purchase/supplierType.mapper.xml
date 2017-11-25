@@ -26,4 +26,8 @@
     <select id="listAll" resultMap="pw.SupplierType">
         SELECT * FROM t_supplier_type
     </select>
+
+    <select id="queryById" resultMap="pw.SupplierType">
+        SELECT * FROM t_supplier_type WHERE id = #{id}
+    </select>
 </mapper>

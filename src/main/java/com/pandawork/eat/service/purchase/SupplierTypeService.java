@@ -37,4 +37,13 @@ public interface SupplierTypeService {
      * @throws SSException
      */
     public List<SupplierType> listAll()throws SSException;
+
+
+    /**
+     * 根据ID查找供货商类型
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public SupplierType queryById(int id)throws SSException;
 }

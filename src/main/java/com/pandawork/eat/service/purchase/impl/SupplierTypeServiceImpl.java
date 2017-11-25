@@ -74,4 +74,17 @@ public class SupplierTypeServiceImpl implements SupplierTypeService {
             throw SSException.get(EatException.ListAllSupplierTypeFailed);
         }
     }
+
+    @Override
+    public SupplierType queryById(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return null;
+            }
+            return supplierTypeMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.QuerySupplierTypeByIdFailed);
+        }
+    }
 }
