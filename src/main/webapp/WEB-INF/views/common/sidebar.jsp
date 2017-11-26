@@ -51,7 +51,7 @@
                                 </li>
                                 <li><a href="${website}/goods/list">商品基本信息</a>
                                 </li>
-                                <li><a href="/views/goods/goodsPriceParameter.html">商品价格参数</a>
+                                <li><a href="${website}/price/list">商品价格参数</a>
                                 </li>
                                 <li><a href="${website}/goods/price/dto/list">商品价格信息</a>
                                 </li>
@@ -67,9 +67,9 @@
                     <div id="dropdown-form" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="nav navbar-nav">
-                                <li><a href="/views/purchase/supplier/supplierType.html">供货商家类别管理</a>
+                                <li><a href="${website}/supplier/type/list">供货商家类别管理</a>
                                 </li>
-                                <li><a href="/views/purchase/supplier/supplierList.html">供货商家信息管理</a>
+                                <li><a href="${website}/supplier/list">供货商家信息管理</a>
                                 </li>
                                 <li><a href="/views/purchase/purchaseOrderList.html">采购订单管理</a>
                                 </li>

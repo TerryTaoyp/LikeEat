@@ -56,7 +56,9 @@ public class GoodsController extends AbstractController {
      * @throws SSException
      */
     @RequestMapping(value = "/to/add",method = RequestMethod.GET)
-    public String toAddGoods()throws SSException{
+    public String toAddGoods(Model model)throws SSException{
+        List<GoodsType> goodsTypeList = typeService.listAll();
+        model.addAttribute("goodsTypeList",goodsTypeList);
         return "goods/edit/addManager";
     }
 
@@ -84,6 +86,8 @@ public class GoodsController extends AbstractController {
     @RequestMapping(value = "/to/edit/{id}",method = RequestMethod.GET)
     public String toEdit(@PathVariable("id") int id, Model model) throws SSException {
         Goods goods = goodsService.queryGoodsById(id);
+        List<GoodsType> goodsTypeList = typeService.listAll();
+        model.addAttribute("goodsTypeList",goodsTypeList);
         model.addAttribute("goods",goods);
         return "goods/edit/editManager";
     }
@@ -260,7 +264,7 @@ public class GoodsController extends AbstractController {
 
     /**
      * 编辑商品价格信息
-     * @param id
+     * @param goodsId
      * @param priceCost
      * @param marketPrice
      * @param remark

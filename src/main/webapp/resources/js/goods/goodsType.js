@@ -20,28 +20,31 @@ $("#modalAddType").on("hidden.bs.modal", function () {
 });  
 
 $(".del").click(function(){
-    var id=$(this).parents("tr").find("#typeId").text();
-    $.ajax({
-        type:"post",
-        url:_ajax.url.goods.type.del,
-        dataType:"json",
-        data:{
-            id:id
-        },
-        success: function (data) {
-            if (data.code) {
-                // 提示信息
-                alert('删除成功');
-                location.reload(true);
+    var name = $(this).parents("tr").find("#tdName").text();
+    if (confirm("您确定要删除商品类型：" + name + " 吗？") == true) {
+        var id = $(this).parents("tr").find("#typeId").text();
+        $.ajax({
+            type: "post",
+            url: _ajax.url.goods.type.del,
+            dataType: "json",
+            data: {
+                id: id
+            },
+            success: function (data) {
+                if (data.code) {
+                    // 提示信息
+                    alert('删除成功');
+                    location.reload(true);
+                }
+                else {
+                    alert('删除失败，请联系管理员');
+                }
+            },
+            error: function () {
+                console.log("获取JSON数据异常");
             }
-            else {
-                alert('删除失败，请联系管理员');
-            }
-        },
-        error: function () {
-            console.log("获取JSON数据异常");
-        }
-    })
+        })
+    }
 });
 
 $("#addSubmit").click(function(){

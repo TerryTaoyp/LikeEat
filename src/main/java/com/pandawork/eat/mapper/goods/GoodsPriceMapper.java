@@ -49,7 +49,7 @@ public interface GoodsPriceMapper {
 
     /**
      * 根据ID查找
-     * @param id
+     * @param goodsId
      * @return
      * @throws SSException
      */

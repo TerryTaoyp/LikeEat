@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 
@@ -47,54 +48,24 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>海鲜类</td>
-                                        <td id="goods">小龙虾</td>
-                                        <td>山东青岛</td>
-                                        <td>15只装/箱</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="goodsId">23</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>水果类</td>
-                                        <td id="goods">火龙果</td>
-                                        <td>湖南长沙</td>
-                                        <td>8只装/箱</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="goodsId">22</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>蔬菜类</td>
-                                        <td id="goods">豆角</td>
-                                        <td>河南郑州</td>
-                                        <td>5斤装/箱</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="goodsId">21</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>补品类</td>
-                                        <td id="goods">人参</td>
-                                        <td>吉林长春</td>
-                                        <td>2只装/箱</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="goodsId">20</td>
-                                    </tr>
+                                    <c:forEach items="${goodsList}" var="good" varStatus="statusG">
+                                        <c:forEach items="${goodsTypeList}" var="type" varStatus="statusT">
+                                            <c:if test="${good.goodsType == type.id}">
+                                                <tr>
+                                                    <td>${statusG.index+1}</td>
+                                                    <td>${type.name}</td>
+                                                    <td id="goods">${good.goodsName}</td>
+                                                    <td>${good.goodsAddress}</td>
+                                                    <td>${good.specification}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success edit">修改</button>
+                                                        <button type="button" class="btn btn-danger del">删除</button>
+                                                    </td>
+                                                    <td class="hidden" id="goodsId">${good.id}</td>
+                                                </tr>
+                                            </c:if>
+                                        </c:forEach>
+                                    </c:forEach>
                                     </tbody>
                                     <tfoot>
                                     <tr>

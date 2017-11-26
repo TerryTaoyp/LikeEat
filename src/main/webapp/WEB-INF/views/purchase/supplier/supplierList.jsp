@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 
@@ -49,58 +50,25 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>水果类</td>
-                                        <td>水果之家</td>
-                                        <td>长春市净月大街255号</td>
-                                        <td>17684373801</td>
-                                        <td>性价比还OK</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="suppId">6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>水果类</td>
-                                        <td>水果之家</td>
-                                        <td>长春市净月大街255号</td>
-                                        <td>17684373801</td>
-                                        <td>性价比还OK</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="suppId">7</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>水果类</td>
-                                        <td>水果之家</td>
-                                        <td>长春市净月大街255号</td>
-                                        <td>17684373801</td>
-                                        <td>性价比还OK</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="suppId">8</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>水果类</td>
-                                        <td>水果之家</td>
-                                        <td>长春市净月大街255号</td>
-                                        <td>17684373801</td>
-                                        <td>性价比还OK</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="suppId">9</td>
-                                    </tr>
+                                    <c:forEach items="${supplierList}" var="supp" varStatus="statusS">
+                                        <c:forEach items="${supplierTypeList}" var="type" varStatus="statusT">
+                                            <c:if test="${supp.supplierTypeId==type.id}">
+                                                <tr>
+                                                    <td>${statusS.index+1}</td>
+                                                    <td>${type.name}</td>
+                                                    <td id="supplierName">${supp.supplierName}</td>
+                                                    <td>${supp.supplierAddress}</td>
+                                                    <td>${supp.telephone}</td>
+                                                    <td>${supp.remark}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success edit">修改</button>
+                                                        <button type="button" class="btn btn-danger del">删除</button>
+                                                    </td>
+                                                    <td class="hidden" id="suppId">${supp.id}</td>
+                                                </tr>
+                                            </c:if>
+                                        </c:forEach>
+                                    </c:forEach>
                                     </tbody>
                                     <tfoot>
                                     <tr>
@@ -117,7 +85,8 @@
                                 </table>
                             </div>
                         </div>
-                        <a class="btn btn-success btn-add" data-toggle="modal" data-target="#modalAddSupp" role="button"> 添加</a>
+                        <a class="btn btn-success btn-add" data-toggle="modal" data-target="#modalAddSupp"
+                           role="button"> 添加</a>
                     </div>
                 </div>
             </div>
@@ -144,25 +113,25 @@
                         <div class="form-group col-lg-6">
                             <label for="type">供货商类别</label>
                             <select class="form-control" id="type">
-                                <option>交易型</option>
-                                <option>战略型</option>
-                                <option>大额型</option>
+                                <c:forEach items="${supplierTypeList}" varStatus="status" var="type">
+                                    <option value="${type.id}">${type.name}</option>
+                                </c:forEach>
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-6">
                             <label for="addr">供货商地址</label>
-                            <input type="text" class="form-control" id="addr" placeholder="请输入供货商地址" >
+                            <input type="text" class="form-control" id="addr" placeholder="请输入供货商地址">
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="contact">联系方式</label>
-                            <input type="text" class="form-control" id="contact" placeholder="请输入供货商联系方式" >
+                            <input type="text" class="form-control" id="contact" placeholder="请输入供货商联系方式">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="remark">备注</label>
-                        <input type="text" class="form-control" id="remark" placeholder="请输入供货商备注" >
+                        <input type="text" class="form-control" id="remark" placeholder="请输入供货商备注">
                     </div>
                 </form>
             </div>
@@ -173,7 +142,8 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="modalEditSupp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditSupp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         </div>

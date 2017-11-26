@@ -45,12 +45,12 @@
         var editRemark=$("#editRemark").val();
         $.ajax({
             type:"post",
-            url:_ajax.url.goods.price.edit,
+            url:_ajax.url.goods.price.update,
             dataType:"json",
             data:{
-                id:${goodsDto.id},
-                priceCost:editInPrice,
-                marketPrice:editOutPrice,
+                goodsId:${goodsDto.id},
+                priceCost:editInPrice*1.0,
+                marketPrice:editOutPrice*1.0,
                 remark:editRemark
             },
             success: function(data) {

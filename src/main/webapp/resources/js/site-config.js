@@ -74,14 +74,14 @@
             purchase:{
                 //供货商列表
                 suppList:{
-                    add:site.website+'supplier/add',//提交新增供货商
+                    insert:site.website+'supplier/add',//提交新增供货商
                     edit:site.website+'supplier/to/edit/',//跳转编辑供货商页面
                     update:site.website+'supplier/edit',//提交编辑供货商
                     del:site.website+'supplier/del'//提交删除供货商
                 },
                 //供货商类别
                 suppType:{
-                    add:site.website+'supplier/type/add',//提交新增供货商类型
+                    insert:site.website+'supplier/type/add',//提交新增供货商类型
                     edit:site.website+'supplier/type/to/edit/',//跳转编辑供货商类型页面
                     update:site.website+'supplier/type/edit',//提交编辑供货商类型
                     del:site.website+'supplier/type/del',//提交删除供货商类型

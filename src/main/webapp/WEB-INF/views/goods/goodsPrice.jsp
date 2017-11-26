@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 
@@ -49,62 +50,22 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>水果类</td>
-                                        <td id="goods">苹果</td>
-                                        <td>2元/斤</td>
-                                        <td>3元/斤</td>
-                                        <td>好吃多汁，物美价廉</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info detail">价格信息详情</button>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="goodsId">63</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>水果类</td>
-                                        <td id="goods">苹果</td>
-                                        <td>2元/斤</td>
-                                        <td>3元/斤</td>
-                                        <td>好吃多汁，物美价廉</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info detail">价格信息详情</button>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="goodsId">66</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>水果类</td>
-                                        <td id="goods">苹果</td>
-                                        <td>2元/斤</td>
-                                        <td>3元/斤</td>
-                                        <td>好吃多汁，物美价廉</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info detail">价格信息详情</button>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="goodsId">65</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>水果类</td>
-                                        <td id="goods">苹果</td>
-                                        <td>2元/斤</td>
-                                        <td>3元/斤</td>
-                                        <td>好吃多汁，物美价廉</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info detail">价格信息详情</button>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="goodsId">64</td>
-                                    </tr>
+                                    <c:forEach items="${goodsDtoList}" var="goods" varStatus="statusG">
+                                        <tr>
+                                            <td>${statusG.index+1}</td>
+                                            <td>${goods.goodsType}</td>
+                                            <td id="goods">${goods.goodsName}</td>
+                                            <td>${goods.priceCost}</td>
+                                            <td>${goods.marketPrice}</td>
+                                            <td>${goods.goodsRemark}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-info detail">价格信息详情</button>
+                                                <button type="button" class="btn btn-success edit">修改</button>
+                                                <button type="button" class="btn btn-danger del">删除</button>
+                                            </td>
+                                            <td class="hidden" id="goodsId">${goods.id}</td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                     <tfoot>
                                     <tr>

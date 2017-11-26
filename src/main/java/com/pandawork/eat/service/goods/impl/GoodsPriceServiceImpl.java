@@ -80,6 +80,7 @@ public class GoodsPriceServiceImpl implements GoodsPriceService {
             if (Assert.isNull(id)){
                 return null;
             }
+            System.out.println(goodsPriceMapper.queryById(id));
             return goodsPriceMapper.queryById(id);
         }catch (Exception e){
             LogClerk.errLog.error(e);

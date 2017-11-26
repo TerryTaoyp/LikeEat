@@ -74,9 +74,9 @@ public class SupplierController extends AbstractController{
     @RequestMapping(value = "/to/eit/{id}",method = RequestMethod.GET)
     public String toEdit(@PathVariable("id") int id, Model model)throws SSException{
         Supplier supplier= supplierService.queryById(id);
-        List<Supplier> supplierList = supplierService.listAll();
+        List<SupplierType> supplierTypeList =supplierTypeService.listAll();
+        model.addAttribute("supplierTypeList",supplierTypeList);
         model.addAttribute("supplier",supplier);
-        model.addAttribute("supplierList",supplierList);
         return "purchase/edit/editSupplierList";
     }
 

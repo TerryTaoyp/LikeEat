@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -35,10 +36,9 @@
             <div class="form-group col-lg-4">
                 <label for="editGoodsType">商品类别</label>
                 <select class="form-control" id="editGoodsType">
-                    <option>海鲜类</option>
-                    <option>水果类</option>
-                    <option>蔬菜类</option>
-                    <option>补品类</option>
+                    <c:forEach items="${goodsTypeList}" var="type" varStatus="status">
+                        <option value="${type.id}">${type.name}</option>
+                    </c:forEach>
                 </select>
             </div>
         </div>

@@ -56,7 +56,6 @@
                                                     <td>${para.pricePara}</td>
                                                     <td>
                                                         <button type="button" class="btn btn-success edit">修改</button>
-                                                        <button type="button" class="btn btn-danger del">删除</button>
                                                     </td>
                                                     <td class="hidden" id="priceParaId">${para.id}</td>
                                                 </tr>

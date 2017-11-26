@@ -128,9 +128,9 @@ public class GoodsServiceImpl implements GoodsService {
     public GoodsDto queryGoodsDtoById(int id) throws SSException {
         try {
             if (Assert.isNotNull(id)){
-                return null;
+                return goodsMapper.queryGoodsDtoById(id);
             }
-            return goodsMapper.queryGoodsDtoById(id);
+            return null;
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(EatException.QueryGoodsByIdFailed);

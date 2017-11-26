@@ -5,10 +5,10 @@ $(document).ready(function () {
 });
 
 $(".detail").click(function(){
-    var id=$(this).parents("tr").find("#goodsId").text();
-    $("#modalPriceDetail").modal({
-        remote: _ajax.url.goods.price.edit+id
-    });
+    // var id=$(this).parents("tr").find("#goodsId").text();
+    // $("#modalPriceDetail").modal({
+    //     remote: _ajax.url.goods.price.edit+id
+    // });
 });
 
 $("#modalPriceDetail").on("hidden.bs.modal",function(){
@@ -16,8 +16,9 @@ $("#modalPriceDetail").on("hidden.bs.modal",function(){
 });
 
 $(".edit").click(function(){
-    $("#modalEditParam").modal({
-        remote: "edit/editPrice.html"
+    var id=$(this).parents("tr").find("#goodsId").text();
+    $("#modalPriceDetail").modal({
+        remote: _ajax.url.goods.price.edit+id
     });
 });
 
