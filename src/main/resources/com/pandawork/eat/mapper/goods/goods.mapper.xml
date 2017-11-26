@@ -47,7 +47,7 @@
     </select>
 
 
-    <select id="listAllGoodsDto" resultMap="GoodsDto">
+    <select id="listAllGoodsDto" resultType="GoodsDto">
         SELECT tg.id AS id,
         tg.goods_name AS goodsName,
         (SELECT tgt.name FROM t_goods_type tgt WHERE tgt.id = tg.goods_type)AS goodsType,
@@ -60,7 +60,7 @@
         FROM t_goods tg
     </select>
 
-    <select id="queryGoodsDtoById" resultMap="GoodsDto">
+    <select id="queryGoodsDtoById" resultType="GoodsDto">
         SELECT tg.id AS id,
         tg.goods_name AS goodsName,
         (SELECT tgt.name FROM t_goods_type tgt WHERE tgt.id = tg.goods_type)AS goodsType,
