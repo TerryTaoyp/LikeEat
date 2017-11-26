@@ -38,4 +38,8 @@
     <select id="queryById" resultMap="pw.GoodsPrice">
         SELECT * FROM t_goods_price WHERE id = #{id}
     </select>
+
+    <select id="queryByGoodsId" resultMap="pw.GoodsPrice">
+        SELECT * FROM t_goods_price WHERE goods_id = #{goodsId}
+    </select>
 </mapper>

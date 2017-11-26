@@ -86,4 +86,17 @@ public class GoodsPriceServiceImpl implements GoodsPriceService {
             throw SSException.get(EatException.QueryGoodsPriceByIdFailed);
         }
     }
+
+    @Override
+    public GoodsPrice queryByGoodsId(int goodsId) throws SSException {
+        try {
+            if (Assert.isNull(goodsId)){
+                return null;
+            }
+            return goodsPriceMapper.queryByGoodsId(goodsId);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.QueryGoodsPriceByGoodsIdFailed);
+        }
+    }
 }

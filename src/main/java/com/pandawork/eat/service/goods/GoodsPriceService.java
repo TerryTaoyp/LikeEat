@@ -46,4 +46,12 @@ public interface GoodsPriceService {
      * @throws SSException
      */
     public GoodsPrice queryById(int id)throws SSException;
+
+    /**
+     * 根据ID查找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public GoodsPrice queryByGoodsId(int goodsId)throws SSException;
 }

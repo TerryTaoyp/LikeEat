@@ -269,8 +269,8 @@ public class GoodsController extends AbstractController {
      */
     @ResponseBody
     @RequestMapping(value = "/price/edit",method = RequestMethod.POST)
-    public JSONObject priceEdit(@RequestParam("id") int id,@RequestParam("priceCost") Double priceCost,@RequestParam("marketPrice") Double marketPrice,@RequestParam("remark") String remark)throws SSException{
-        GoodsPrice goodsPrice = goodsPriceService.queryById(id);
+    public JSONObject priceEdit(@RequestParam("goodsId") int goodsId,@RequestParam("priceCost") Double priceCost,@RequestParam("marketPrice") Double marketPrice,@RequestParam("remark") String remark)throws SSException{
+        GoodsPrice goodsPrice = goodsPriceService.queryByGoodsId(goodsId);
         goodsPrice.setPriceCost(priceCost);
         goodsPrice.setMarketPrice(marketPrice);
         goodsPrice.setRemark(remark);

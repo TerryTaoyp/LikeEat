@@ -51,4 +51,9 @@ public class GoodsPriceServiceTest extends AbstractTestCase {
     public void delTest()throws SSException{
         goodsPriceService.delGoodsPrice(2);
     }
+
+    @Test
+    public void queryByIdTest()throws SSException{
+        System.out.println(goodsPriceService.queryById(1));
+    }
 }

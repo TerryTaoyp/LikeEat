@@ -87,4 +87,9 @@ public class GoodsServiceTest extends AbstractTestCase{
     public void queryGoodsByNameTest()throws SSException{
         goodsService.queryGoodsByName("山药3");
     }
+
+    @Test
+    public void queryGoodsDtoById()throws SSException{
+        System.out.println(goodsService.queryGoodsDtoById(2));
+    }
 }

@@ -46,4 +46,12 @@ public interface GoodsPriceMapper {
      * @throws SSException
      */
     public GoodsPrice queryById(@Param("id") int id)throws SSException;
+
+    /**
+     * 根据ID查找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public GoodsPrice queryByGoodsId(@Param("goodsId") int goodsId)throws SSException;
 }

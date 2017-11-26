@@ -70,6 +70,7 @@
         (SELECT tgp.price_cost FROM t_goods_price tgp WHERE tgp.goods_id = tg.id)AS priceCost,
         (SELECT tgp.market_price FROM t_goods_price tgp WHERE tgp.goods_id = tg.id)AS marketPrice,
         (SELECT tgp.remark FROM t_goods_price tgp WHERE tgp.goods_id = tg.id)AS goodsRemark
-        FROM t_goods tg WHERE tg.id = #{id}
+        FROM t_goods tg
+        WHERE tg.id = #{id}
     </select>
 </mapper>
