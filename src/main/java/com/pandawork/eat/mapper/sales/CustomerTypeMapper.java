@@ -3,6 +3,7 @@ package com.pandawork.eat.mapper.sales;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.eat.common.entity.sales.CustomerType;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -38,4 +39,12 @@ public interface CustomerTypeMapper {
      * @throws SSException
      */
     public List<CustomerType> listAll()throws SSException;
+
+    /**
+     * 根据ID查找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public CustomerType queryById(@RequestParam("id") int id)throws SSException;
 }

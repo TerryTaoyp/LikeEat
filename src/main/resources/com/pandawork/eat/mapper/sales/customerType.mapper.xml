@@ -26,4 +26,8 @@
     <select id="listAll" resultMap="pw.CustomerType">
         SELECT * FROM t_customer_type
     </select>
+
+    <select id="queryById" resultMap="pw.CustomerType">
+        SELECT * FROM t_customer_type WHERE id = #{id}
+    </select>
 </mapper>

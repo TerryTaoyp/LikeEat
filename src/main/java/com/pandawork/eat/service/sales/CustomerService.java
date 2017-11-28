@@ -37,4 +37,12 @@ public interface CustomerService {
      * @throws SSException
      */
     public List<Customer> listAll()throws SSException;
+
+    /**
+     * 根据 ID查找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public Customer queryById(int id)throws SSException;
 }

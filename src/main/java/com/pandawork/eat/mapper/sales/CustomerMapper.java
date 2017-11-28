@@ -38,4 +38,12 @@ public interface CustomerMapper {
      * @throws SSException
      */
     public List<Customer> listAll()throws SSException;
+
+    /**
+     * 根据 ID查找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public Customer queryById(@Param("id") int id)throws SSException;
 }

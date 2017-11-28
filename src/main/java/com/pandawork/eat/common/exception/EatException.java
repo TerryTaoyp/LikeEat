@@ -94,6 +94,8 @@ public enum EatException implements IBizExceptionMes{
     AddSalesOrderFailed("新增销售订单失败",1325),
     DelSalesOrderFailed("删除销售订单失败",1326),
     EditSalesOrderFailed("编辑销售订单信息失败",1327),
+    QueryCustomerByIdFailed("根据ID查找客户失败",1328),
+    QueryCustomerTypeByIdFailed("根据ID查找客户类别失败",1329),
 
     //查询管理
     AddInStorageFailed("新增入库信息失败",1401),

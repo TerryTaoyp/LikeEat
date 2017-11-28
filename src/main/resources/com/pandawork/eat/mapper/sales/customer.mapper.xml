@@ -72,4 +72,8 @@
     <select id="listAll" resultMap="pw.Customer">
         SELECT * FROM t_customer
     </select>
+
+    <select id="queryById" resultMap="pw.Customer">
+        SELECT * FROM t_customer WHERE id = #{id}
+    </select>
 </mapper>

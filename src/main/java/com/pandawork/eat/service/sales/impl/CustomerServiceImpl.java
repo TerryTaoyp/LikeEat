@@ -73,4 +73,17 @@ public class CustomerServiceImpl implements CustomerService {
             throw SSException.get(EatException.ListAllCustomerFailed);
         }
     }
+
+    @Override
+    public Customer queryById(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return null;
+            }
+            return customerMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(EatException.QueryCustomerByIdFailed);
+        }
+    }
 }
