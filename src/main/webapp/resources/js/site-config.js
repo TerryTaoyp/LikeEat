@@ -86,6 +86,22 @@
                     update:site.website+'supplier/type/edit',//提交编辑供货商类型
                     del:site.website+'supplier/type/del',//提交删除供货商类型
                 }
+            },
+            //出库管理
+            sale:{
+                //客户列表
+                customerList:{
+                    add:site.website+'customer/add',//提交新增客户
+                    edit:site.website+'customer/to/edit/',//跳转编辑客户页面
+                    update:site.website+'customer/edit',//提交编辑客户
+                    del:site.website+'customer/del'//提交删除客户
+                },
+                customerType:{
+                    add:site.website+'customer/type/add',//提交新增客户类型
+                    edit:site.website+'customer/type/to/edit/',//跳转编辑客户类型页面
+                    update:site.website+'customer/type/edit',//提交编辑客户类型
+                    del:site.website+'customer/type/del'//提交删除客户类型
+                }
             }
         },
     }

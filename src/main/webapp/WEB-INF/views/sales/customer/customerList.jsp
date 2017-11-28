@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 
@@ -47,60 +48,26 @@
                                         <th class="hidden"></th>
                                     </tr>
                                     </thead>
-
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>水果类</td>
-                                        <td>水果之家</td>
-                                        <td>长春市净月大街255号</td>
-                                        <td>17684373801</td>
-                                        <td>性价比还OK</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="custId">6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>水果类</td>
-                                        <td>水果之家</td>
-                                        <td>长春市净月大街255号</td>
-                                        <td>17684373801</td>
-                                        <td>性价比还OK</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="custId">7</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>水果类</td>
-                                        <td>水果之家</td>
-                                        <td>长春市净月大街255号</td>
-                                        <td>17684373801</td>
-                                        <td>性价比还OK</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="custId">8</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>水果类</td>
-                                        <td>水果之家</td>
-                                        <td>长春市净月大街255号</td>
-                                        <td>17684373801</td>
-                                        <td>性价比还OK</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="custId">9</td>
-                                    </tr>
+                                    <c:forEach items="${customerList}" var="cust" varStatus="statusC">
+                                        <c:forEach items="${customerTypeList}" var="type" varStatus="statusT">
+                                            <c:if test="${cust.customerTypeId == type.id}">
+                                                <tr>
+                                                    <td>${statusC.index+1}</td>
+                                                    <td>${type.name}</td>
+                                                    <td id="custName">${cust.customerName}</td>
+                                                    <td>${cust.unitAddress}</td>
+                                                    <td>${cust.telephone1}</td>
+                                                    <td>${cust.remark}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success edit">修改</button>
+                                                        <button type="button" class="btn btn-danger del">删除</button>
+                                                    </td>
+                                                    <td class="hidden" id="custId">${cust.id}</td>
+                                                </tr>
+                                            </c:if>
+                                        </c:forEach>
+                                    </c:forEach>
                                     </tbody>
                                     <tfoot>
                                     <tr>

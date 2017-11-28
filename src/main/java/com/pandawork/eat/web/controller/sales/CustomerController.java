@@ -11,10 +11,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -95,8 +92,8 @@ public class CustomerController extends AbstractController {
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/to/edit",method = RequestMethod.POST)
-    public String toCustomerEdit(Model model,@RequestParam("id") int id)throws SSException{
+    @RequestMapping(value = "/to/edit/{id}",method = RequestMethod.GET)
+    public String toCustomerEdit(Model model,@PathVariable("id") int id)throws SSException{
         Customer customer = customerService.queryById(id);
         model.addAttribute("customer",customer);
         return "sales/edit/editCustomerList";
@@ -219,8 +216,8 @@ public class CustomerController extends AbstractController {
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/type/to/edit",method = RequestMethod.POST)
-    public String toCustomerTypeEdit(@RequestParam("id") int id,Model model)throws SSException{
+    @RequestMapping(value = "/type/to/edit/{id}",method = RequestMethod.GET)
+    public String toCustomerTypeEdit(@PathVariable("id") int id, Model model)throws SSException{
         CustomerType customerType = customerTypeService.queryById(id);
         model.addAttribute("customerType",customerType);
         return "sales/edit/editCustomerType";

@@ -87,9 +87,9 @@
                     <div id="component-example" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="nav navbar-nav">
-                                <li><a href="/views/sales/customer/customerType.html">客户类别信息管理</a>
+                                <li><a href="${website}/customer/type/list">客户类别信息管理</a>
                                 </li>
-                                <li><a href="/views/sales/customer/customerList.html">客户基本信息管理</a>
+                                <li><a href="${website}/customer/list">客户基本信息管理</a>
                                 </li>
                                 <li><a href="/views/sales/salesOrderList.html">销售订单管理</a>
                                 </li>
