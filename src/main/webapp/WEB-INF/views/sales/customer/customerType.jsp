@@ -46,46 +46,18 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>海鲜类</td>
-                                        <td>新鲜，可口，好吃</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="typeId">9</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>人参类</td>
-                                        <td>自家生产，纯天然</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="typeId">9</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>蔬菜类</td>
-                                        <td>纯天然，无添加</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="typeId">9</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>水果类</td>
-                                        <td>色泽鲜亮，新鲜，可口</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success edit">修改</button>
-                                            <button type="button" class="btn btn-danger del">删除</button>
-                                        </td>
-                                        <td class="hidden" id="typeId">9</td>
-                                    </tr>
+                                    <c:forEach items="${customerTypeList}" var="type" varStatus="status">
+                                        <tr>
+                                            <td>${status.index+1}</td>
+                                            <td id="name">${type.name}</td>
+                                            <td>${type.remark}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success edit">修改</button>
+                                                <button type="button" class="btn btn-danger del">删除</button>
+                                            </td>
+                                            <td class="hidden" id="typeId">${type.id}</td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                     <tfoot>
                                     <tr>

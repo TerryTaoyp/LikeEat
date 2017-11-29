@@ -59,6 +59,7 @@ public class CustomerController extends AbstractController {
                                   @RequestParam("wechat")String wechat,
                                   @RequestParam("alipay")String alipay,
                                   @RequestParam("bankName")String bankName,
+                                  @RequestParam("bankNum")String bankNum,
                                   @RequestParam("email1")String email1,
                                   @RequestParam("email2")String email2,
                                   @RequestParam("customerTypeId")int customerTypeId,
@@ -77,6 +78,7 @@ public class CustomerController extends AbstractController {
         customer.setWeChat(wechat);
         customer.setAlipay(alipay);
         customer.setBankName(bankName);
+        customer.setBankNum(bankNum);
         customer.setEmail1(email1);
         customer.setEmail2(email2);
         customer.setCustomerTypeId(customerTypeId);
@@ -136,6 +138,7 @@ public class CustomerController extends AbstractController {
                                    @RequestParam("wechat")String wechat,
                                    @RequestParam("alipay")String alipay,
                                    @RequestParam("bankName")String bankName,
+                                   @RequestParam("bankNum")String bankNum,
                                    @RequestParam("email1")String email1,
                                    @RequestParam("email2")String email2,
                                    @RequestParam("customerTypeId")int customerTypeId,
@@ -154,6 +157,7 @@ public class CustomerController extends AbstractController {
         customer.setWeChat(wechat);
         customer.setAlipay(alipay);
         customer.setBankName(bankName);
+        customer.setBankNum(bankNum);
         customer.setEmail1(email1);
         customer.setEmail2(email2);
         customer.setCustomerTypeId(customerTypeId);

@@ -66,21 +66,41 @@
         <div class="row">
             <div class="form-group col-lg-6">
                 <label for="editCompany">客户单位名称</label>
-                <input type="text" class="form-control" id="editCompany" placeholder="请输入客户单位名称">
+                <input type="text" class="form-control" id="editCompany" placeholder="请输入客户单位名称" >
             </div>
             <div class="form-group col-lg-6">
-                <label for="editAddr">配送地址</label>
-                <input type="text" class="form-control" id="editAddr" placeholder="请输入配送地址">
+                <label for="editAddr1">配送地址1</label>
+                <input type="text" class="form-control" id="editAddr1" placeholder="请输入配送地址" >
             </div>
         </div>
         <div class="row">
             <div class="form-group col-lg-6">
-                <label for="editPhone">联系电话</label>
-                <input type="text" class="form-control" id="editPhone" placeholder="请输入客户联系电话">
+                <label for="editAddr2">配送地址2</label>
+                <input type="text" class="form-control" id="editAddr2" placeholder="请输入客户单位名称" >
             </div>
             <div class="form-group col-lg-6">
-                <label for="editAliPay">支付宝账号</label>
-                <input type="text" class="form-control" id="editAliPay" placeholder="请输入客户支付宝账号">
+                <label for="editAddr3">配送地址3</label>
+                <input type="text" class="form-control" id="editAddr3" placeholder="请输入配送地址" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label for="aliPay">支付宝账号</label>
+                <input type="text" class="form-control" id="aliPay" placeholder="请输入客户支付宝账号" >
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="editPhone1">联系电话1</label>
+                <input type="text" class="form-control" id="editPhone1" placeholder="请输入客户联系电话" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label for="editPhone2">联系电话2</label>
+                <input type="text" class="form-control" id="editPhone2" placeholder="请输入客户联系电话" >
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="editPhone3">联系电话3</label>
+                <input type="text" class="form-control" id="editPhone3" placeholder="请输入客户联系电话" >
             </div>
         </div>
         <div class="form-group">
@@ -105,18 +125,26 @@
             <a class="btn btn-link" role="button" id="toEditContact">
                 <span class="fa fa-phone"></span> 编辑其他联系信息</a>
         </div>
-        <div class="row hidden" id="editContact">
-            <div class="form-group col-lg-4">
-                <label for="editQq">QQ号</label>
-                <input type="text" class="form-control" id="editQq" placeholder="请输入客户QQ号">
+        <div class="hidden" id="contact">
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="editQq">QQ号</label>
+                    <input type="text" class="form-control" id="editQq" placeholder="请输入客户QQ号" >
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="editWeChat">微信号</label>
+                    <input type="text" class="form-control" id="editWeChat" placeholder="请输入客户微信号" >
+                </div>
             </div>
-            <div class="form-group col-lg-4">
-                <label for="editWeChat">微信号</label>
-                <input type="text" class="form-control" id="editWeChat" placeholder="请输入客户微信号">
-            </div>
-            <div class="form-group col-lg-4">
-                <label for="editMail">邮箱</label>
-                <input type="text" class="form-control" id="editMail" placeholder="请输入客户邮箱">
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="editMail1">邮箱1</label>
+                    <input type="text" class="form-control" id="editMail1" placeholder="请输入客户邮箱" >
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="editMail2">邮箱2</label>
+                    <input type="text" class="form-control" id="editMail2" placeholder="请输入客户邮箱" >
+                </div>
             </div>
         </div>
     </form>
@@ -163,8 +191,12 @@
         var editName = $("#editName").val();
         var editTypeId = $("#editTypeId").select().val();
         var editCompany = $("#editCompany").val();
-        var editAddr = $("#editAddr").val();
-        var editPhone = $("#editPhone").val();
+        var editAddr1 = $("#editAddr1").val();
+        var editAddr2 = $("#editAddr2").val();
+        var editAddr3 = $("#editAddr3").val();
+        var editPhone1 = $("#editPhone1").val();
+        var editPhone2 = $("#editPhone2").val();
+        var editPhone3 = $("#editPhone3").val();
         var editAliPay = $("#editAliPay").val();
         var editRemark = $("#editRemark").val();
         var editLevel = $("#editLevel").select().val();
@@ -176,7 +208,7 @@
         var editBank = $("#editBank").val();
         var editQq = $("#editQq").val();
         var editWeChat = $("#editWeChat").val();
-        var editMail = $("#editMail").val();
-        alert(editName + editTypeId + editCompany + editAddr + editPhone + editAliPay + editRemark + editLevel + editSex + editCardId + editBirth + editIdNumber + editAccount + editBank + editQq + editWeChat + editMail);
+        var editMail1 = $("#editMail1").val();
+        var editMail2 = $("#editMail2").val();
     });
 </script>

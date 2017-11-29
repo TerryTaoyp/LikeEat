@@ -157,18 +157,38 @@
                             <input type="text" class="form-control" id="company" placeholder="请输入客户单位名称" >
                         </div>
                         <div class="form-group col-lg-6">
-                            <label for="addr">配送地址</label>
-                            <input type="text" class="form-control" id="addr" placeholder="请输入配送地址" >
+                            <label for="addr1">配送地址1</label>
+                            <input type="text" class="form-control" id="addr1" placeholder="请输入配送地址" >
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <label for="phone">联系电话</label>
-                            <input type="text" class="form-control" id="phone" placeholder="请输入客户联系电话" >
+                            <label for="addr2">配送地址2</label>
+                            <input type="text" class="form-control" id="addr2" placeholder="请输入客户单位名称" >
                         </div>
+                        <div class="form-group col-lg-6">
+                            <label for="addr3">配送地址3</label>
+                            <input type="text" class="form-control" id="addr3" placeholder="请输入配送地址" >
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="form-group col-lg-6">
                             <label for="aliPay">支付宝账号</label>
                             <input type="text" class="form-control" id="aliPay" placeholder="请输入客户支付宝账号" >
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="phone1">联系电话1</label>
+                            <input type="text" class="form-control" id="phone1" placeholder="请输入客户联系电话" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label for="phone2">联系电话2</label>
+                            <input type="text" class="form-control" id="phone2" placeholder="请输入客户联系电话" >
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label for="phone3">联系电话3</label>
+                            <input type="text" class="form-control" id="phone3" placeholder="请输入客户联系电话" >
                         </div>
                     </div>
                     <div class="form-group">
@@ -193,18 +213,26 @@
                         <a class="btn btn-link" role="button" id="addContact">
                             <span class="fa fa-phone"></span> 添加其他联系信息</a>
                     </div>
-                    <div class="row hidden" id="contact">
-                        <div class="form-group col-lg-4">
+                    <div class="hidden" id="contact">
+                        <div class="row">
+                        <div class="form-group col-lg-6">
                             <label for="qq">QQ号</label>
                             <input type="text" class="form-control" id="qq" placeholder="请输入客户QQ号" >
                         </div>
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-6">
                             <label for="weChat">微信号</label>
                             <input type="text" class="form-control" id="weChat" placeholder="请输入客户微信号" >
                         </div>
-                        <div class="form-group col-lg-4">
-                            <label for="mail">邮箱</label>
-                            <input type="text" class="form-control" id="mail" placeholder="请输入客户邮箱" >
+                        </div>
+                        <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label for="mail1">邮箱1</label>
+                            <input type="text" class="form-control" id="mail1" placeholder="请输入客户邮箱" >
+                        </div>
+                            <div class="form-group col-lg-6">
+                                <label for="mail2">邮箱2</label>
+                                <input type="text" class="form-control" id="mail2" placeholder="请输入客户邮箱" >
+                            </div>
                         </div>
                     </div>
                 </form>
