@@ -18,24 +18,20 @@
         <div class="row">
             <div class="form-group col-lg-6">
                 <label for="editTypeName">类型名称</label>
-                <input type="text" class="form-control" id="editTypeName" placeholder="请输入客户类别名称">
+                <input type="text" class="form-control" id="editTypeName" value="${customerType.name}">
             </div>
-            <div class="form-group col-lg-2">
-                <label>&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <div class="checkbox3 checkbox-inline checkbox-check checkbox-light">
-                    <input type="checkbox" id="editIsVIP"/>
-                    <label for="editIsVIP">该类型属于会员</label>
-                </div>
+            <div class="form-group col-lg-6">
+                <label for="editGeneralType">该类型属于</label>
+                <select class="form-control" id="editGeneralType">
+                    <option value="2">会员</option>
+                    <option value="3">销售商</option>
+                    <option value="4">代理商</option>
+                </select>
             </div>
         </div>
-        <div class="form-group">
-            <label for="editParam">价格参数</label>
-            <input type="text" class="form-control" id="editParam" placeholder="请输入客户价格参数">
-        </div>
-
         <div class="form-group">
             <label for="editRemark">备注</label>
-            <input type="text" class="form-control" id="editRemark" placeholder="请输入客户类别备注">
+            <input type="text" class="form-control" id="editRemark" value="${customerType.remark}">
         </div>
     </form>
 </div>
@@ -46,9 +42,31 @@
 <script>
     $("#editSubmit").click(function(){
         var editTypeName =$("#editTypeName").val();
-        var editIsVIP = $("#editIsVIP").is(":checked");
-        var editParam = $("#editParam").val();
+        var editGeneralType = $("#editGeneralType").val();
         var editRemark = $("#editRemark").val();
-        alert(editTypeName+"+"+editIsVIP+"+"+editParam+"+"+editRemark);
+        $.ajax({
+            type:"post",
+            url:_ajax.url.sale.customerType.update,
+            dataType:"json",
+            data:{
+                id:${customerType.id},
+                name:editTypeName,
+                generalType:editGeneralType,
+                remark:editRemark
+            },
+            success: function(data) {
+                if (data.code) {
+                    // 提示信息
+                    alert('修改成功');
+                    location.reload(true);
+                }
+                else{
+                    alert('修改失败');
+                }
+            },
+            error: function () {
+                console.log("获取JSON数据异常");
+            }
+        })
     })
 </script>

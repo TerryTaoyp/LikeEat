@@ -1,6 +1,8 @@
 var vipDisplay = false;
 var bankInfoDisplay = false;
 var contactDisplay = false;
+var sellerDisplay = false;
+var agentDisplay = false;
 
 $(document).ready(function () {
     $('#list').dataTable({
@@ -34,6 +36,14 @@ $("#modalAddCust").on("hidden.bs.modal", function () {
         $("#contact").addClass('hidden');
         contactDisplay=false;
     }
+    if(sellerDisplay==true){
+        $("#contact").addClass('hidden');
+        sellerDisplay=false;
+    }
+    if(agentDispaly==true){
+        $("#contact").addClass('hidden');
+        agentDispaly=false;
+    }
 });  
 
 $(".del").click(function(){
@@ -65,12 +75,39 @@ $(".del").click(function(){
 });
 
 $("#typeId").change(function(){
-    if($("#typeId").select().val()=="会员"&&vipDisplay==false){
+    if($("#typeId").select().val()=="2"&&vipDisplay==false){
         $("#vipInfo").removeClass('hidden');
         vipDisplay=true;
-    }else if($("#typeId").select().val()!="会员"&&vipDisplay==true){
-        $("#vipInfo").addClass('hidden');
-        vipDisplay=false;
+        if(sellerDisplay==true){
+            $("#sellerInfo").addClass('hidden');
+            sellerDisplay=false;
+        }
+        if(agentDisplay==true){
+            $("#agentInfo").addClass('hidden');
+            agentDisplay=false;
+        }
+    }else if($("#typeId").select().val()!="3"&&sellerDisplay==false){
+        $("#sellerInfo").removeClass('hidden');
+        sellerDisplay=true;
+        if(vipDisplay==true){
+            $("#vipInfo").addClass('hidden');
+            vipDisplay=false;
+        }
+        if(agentDisplay==true){
+            $("#agentInfo").addClass('hidden');
+            agentDisplay=false;
+        }
+    }else if($("#typeId").select().val()!="4"&&agentDisplay==false){
+        $("#agentInfo").removeClass('hidden');
+        agentDisplay=true;
+        if(vipDisplay==true){
+            $("#vipInfo").addClass('hidden');
+            vipDisplay=false;
+        }
+        if(sellerDisplay==true){
+            $("#agentInfo").addClass('hidden');
+            sellerDisplay=false;
+        }
     }
 });
 
@@ -92,7 +129,7 @@ $("#addContact").click(function(){
         $("#contact").addClass('hidden');
         contactDisplay=false;
     }
-})
+});
 
 $("#addSubmit").click(function(){
     var name = $("#name").val();
@@ -117,4 +154,56 @@ $("#addSubmit").click(function(){
     var weChat = $("#weChat").val();
     var mail1 = $("#mail1").val();
     var mail2 = $("#mail2").val();
+    if(vipDisplay==true){
+        var typeId2 = $("#level").val();
+    }else if(sellerDisplay==true){
+        var typeId2 = $("#sellerType").val();
+    }else if(agentDisplay==true){
+        var typeId2 = $("#agentType").val();
+    }else{
+        var typeId2 = -1;
+    }
+    $.ajax({
+        type:"post",
+        url:_ajax.url.sale.customerList.add,
+        dataType:"json",
+        data:{
+            customerName:name,
+            customerTypeId:typeId,
+            unitAddress:company,
+            deliveryAddress1:addr1,
+            deliveryAddress2:addr2,
+            deliveryAddress3:addr3,
+            telephone1:phone1,
+            telephone2:phone2,
+            telephone3:phone3,
+            qq:qq,
+            wechat:weChat,
+            alipay:aliPay,
+            bankName:bank,
+            bankNum:account,
+            email1:mail1,
+            email2:mail2,
+            customerTypeId2:typeId2,
+            remark:remark,
+            level:level,
+            sex:sex,
+            cardId:cardId,
+            birth:birth,
+            idNumber:idNumber
+        },
+        success: function (data) {
+            if (data.code) {
+                // 提示信息
+                alert('添加成功');
+                location.reload(true);
+            }
+            else {
+                alert('添加失败，请联系管理员');
+            }
+        },
+        error: function () {
+            console.log("获取JSON数据异常");
+        }
+    })
 });

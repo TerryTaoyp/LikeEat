@@ -95,19 +95,15 @@
                             <label for="typeName">类型名称</label>
                             <input type="text" class="form-control" id="typeName" placeholder="请输入客户类别名称">
                         </div>
-                        <div class="form-group col-lg-2">
-                            <label>&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <div class="checkbox3 checkbox-inline checkbox-check checkbox-light">
-                                <input type="checkbox" id="isVIP"/>
-                                <label for="isVIP">该类型属于会员</label>
-                            </div>
+                        <div class="form-group col-lg-6">
+                            <label for="generalType">该类型属于</label>
+                            <select class="form-control" id="generalType">
+                                <option value="2">会员</option>
+                                <option value="3">销售商</option>
+                                <option value="4">代理商</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="param">价格参数</label>
-                        <input type="text" class="form-control" id="param" placeholder="请输入客户价格参数">
-                    </div>
-
                     <div class="form-group">
                         <label for="remark">备注</label>
                         <input type="text" class="form-control" id="remark" placeholder="请输入客户类别备注">

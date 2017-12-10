@@ -49,8 +49,29 @@ $(".del").click(function(){
 
 $("#addSubmit").click(function(){
     var typeName=$("#typeName").val();
-    var isVIP=$("#isVIP").is(':checked');
-    var param=$("#param").val();
+    var generalType=$("#generalType").val();
     var remark=$("#remark").val();
-    alert(typeName+"+"+isVIP+"+"+param+"+"+remark);
+    $.ajax({
+        type:"post",
+        url:_ajax.url.sale.customerType.add,
+        dataType:"json",
+        data:{
+            name:typeName,
+            generalType:generalType,
+            remark:remark
+        },
+        success: function (data) {
+            if (data.code) {
+                // 提示信息
+                alert('添加成功');
+                location.reload(true);
+            }
+            else {
+                alert('添加失败，请联系管理员');
+            }
+        },
+        error: function () {
+            console.log("获取JSON数据异常");
+        }
+    })
 });

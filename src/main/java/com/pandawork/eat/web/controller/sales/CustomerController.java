@@ -49,7 +49,7 @@ public class CustomerController extends AbstractController {
     }
 
     /**
-     * 添加新客户;0是普通客户；1是会员；2是销售商；3是代理商
+     * 添加新客户;1是普通客户；2是会员；3是销售商；4是代理商
      * @return
      * @throws SSException
      */
@@ -72,7 +72,12 @@ public class CustomerController extends AbstractController {
                                   @RequestParam("email2")String email2,
                                   @RequestParam("customerTypeId")int customerTypeId,
                                   @RequestParam("customerTypeId2")int customerTypeId2,
-                                  @RequestParam("remark")String remark
+                                  @RequestParam("remark")String remark,
+                                  @RequestParam("level")int level,//会员等级
+                                  @RequestParam("sex")int sex,//会员性别
+                                  @RequestParam("cardId")String cardId,//会员卡号
+                                  @RequestParam("birth")String birth,//会员生日
+                                  @RequestParam("idNumber")String idNumber//身份证号
                                   )throws SSException{
         Customer customer = new Customer();
         customer.setCustomerName(customerName);
@@ -152,7 +157,12 @@ public class CustomerController extends AbstractController {
                                    @RequestParam("email2")String email2,
                                    @RequestParam("customerTypeId")int customerTypeId,
                                    @RequestParam("customerTypeId2")int customerTypeId2,
-                                   @RequestParam("remark")String remark
+                                   @RequestParam("remark")String remark,
+                                   @RequestParam("level")int level,//会员等级
+                                   @RequestParam("sex")int sex,//会员性别
+                                   @RequestParam("cardId")String cardId,//会员卡号
+                                   @RequestParam("birth")String birth,//会员生日
+                                   @RequestParam("idNumber")String idNumber//身份证号
                                    )throws SSException{
         Customer customer = customerService.queryById(id);
         customer.setCustomerName(customerName);
@@ -215,7 +225,7 @@ public class CustomerController extends AbstractController {
      */
     @ResponseBody
     @RequestMapping(value = "/type/add",method = RequestMethod.POST)
-    public JSONObject addCustomerTypeId(@RequestParam("name") String name,@RequestParam("remark") String remark)throws SSException{
+    public JSONObject addCustomerTypeId(@RequestParam("name") String name,@RequestParam("generalType")int generalType,@RequestParam("remark") String remark)throws SSException{
         CustomerType customerType = new CustomerType();
         customerType.setName(name);
         customerType.setRemark(remark);
