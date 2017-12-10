@@ -79,6 +79,9 @@ public class Customer {
     @Column(name = "customer_type")
     private Integer customerTypeId;
 
+    //客户二级类别，1为普通客户，2为会员,3为分销商，4为代理商
+    @Column(name = "customer_type2")
+    private Integer customerTypeId2;
     //备注
     @Column(name = "remark")
     private String remark;

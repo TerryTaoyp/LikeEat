@@ -21,6 +21,7 @@
         email1,
         email2,
         customer_type,
+        customer_type2,
         remark
         )VALUES (
         #{customer.customerName},
@@ -39,6 +40,7 @@
         #{customer.email1},
         #{customer.email2},
         #{customer.customerTypeId},
+        #{customer.customerTypeId2},
         #{customer.remark}
         )
     </insert>
@@ -65,6 +67,7 @@
         email1 = #{customer.email1},
         email2 = #{customer.email2},
         customer_type = #{customer.customerTypeId},
+        customer_type2 = #{customer.customerTypeId2},
         remark = #{customer.remark}
         WHERE id = #{customer.id}
     </update>

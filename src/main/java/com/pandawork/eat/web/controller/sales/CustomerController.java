@@ -4,8 +4,7 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.util.Assert;
 import com.pandawork.eat.common.entity.sales.Customer;
 import com.pandawork.eat.common.entity.sales.CustomerType;
-import com.pandawork.eat.service.sales.CustomerService;
-import com.pandawork.eat.service.sales.CustomerTypeService;
+import com.pandawork.eat.service.sales.*;
 import com.pandawork.eat.web.controller.AbstractController;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +24,15 @@ public class CustomerController extends AbstractController {
     CustomerService customerService;
     @Autowired
     CustomerTypeService customerTypeService;
+    //2为会员
+    @Autowired
+    MemberTypeService memberTypeService;
+    //3是销售商
+    @Autowired
+    RetailerTypeService retailerTypeService;
+    //4为代理商
+    @Autowired
+    AgentTypeService agentTypeService;
     /**
      * 获得客户列表页面
      * @param model
@@ -41,7 +49,7 @@ public class CustomerController extends AbstractController {
     }
 
     /**
-     * 添加新客户
+     * 添加新客户;0是普通客户；1是会员；2是销售商；3是代理商
      * @return
      * @throws SSException
      */
@@ -63,6 +71,7 @@ public class CustomerController extends AbstractController {
                                   @RequestParam("email1")String email1,
                                   @RequestParam("email2")String email2,
                                   @RequestParam("customerTypeId")int customerTypeId,
+                                  @RequestParam("customerTypeId2")int customerTypeId2,
                                   @RequestParam("remark")String remark
                                   )throws SSException{
         Customer customer = new Customer();
@@ -142,6 +151,7 @@ public class CustomerController extends AbstractController {
                                    @RequestParam("email1")String email1,
                                    @RequestParam("email2")String email2,
                                    @RequestParam("customerTypeId")int customerTypeId,
+                                   @RequestParam("customerTypeId2")int customerTypeId2,
                                    @RequestParam("remark")String remark
                                    )throws SSException{
         Customer customer = customerService.queryById(id);
